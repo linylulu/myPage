@@ -1,0 +1,134 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$body-bg: #c0c0a0;
+
+$nav-pills-border-radius:0;
+$nav-pills-link-active-color:white;
+$nav-pills-link-active-bg:#808080;
+$navbar-dark-color:white;
+$navbar-dark-hover-color:white;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/carousel";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here// @import "bootstrap/scss/print";
+
+
+//
+// Custom styles
+//
+
+//@import "icon-list";
+//
+//body {
+//  padding: 3rem 1.5rem;
+//}
+//
+//// Style Bootstrap icons
+//.bi {
+//  fill: currentcolor;
+//}
+.nav-pills {
+  li:hover {
+    background-color: #909090;
+  }
+}
+
+//.navbar-toggler {
+//  //padding: var(--#{$prefix}navbar-toggler-padding-y) var(--#{$prefix}navbar-toggler-padding-x);
+//  //@include font-size(var(--#{$prefix}navbar-toggler-font-size));
+//  //line-height: 1;
+//  //color: var(--#{$prefix}navbar-color);
+//  //background-color: transparent; // remove default button style
+//  //border: var(--#{$prefix}border-width) solid var(--#{$prefix}navbar-toggler-border-color); // remove default button style
+//  //@include border-radius(var(--#{$prefix}navbar-toggler-border-radius));
+//  //@include transition(var(--#{$prefix}navbar-toggler-transition));
+//  //
+//  //&:hover {
+//  //  text-decoration: none;
+//  //}
+//
+//  &:focus {
+//    text-decoration: none;
+//    outline: 0;
+//    //box-shadow: 0 0 0 var(--#{$prefix}navbar-toggler-focus-width);
+//  }
+//}
+
+//.navbar-toggler-icon {
+//    width: 1em;
+//    height: 1em;
+//}
+
+header {
+  img {
+    height:5em;
+  }
+}
+
+.container-width{
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container-width {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-width {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-width {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-width {
+    width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-width {
+    width: 1320px;
+  }
+}
+
+
+
+
