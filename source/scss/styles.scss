@@ -35,6 +35,7 @@ $navbar-dark-hover-color:white;
 @import "../../node_modules/bootstrap/scss/transitions";
 @import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/nav";
+
 @import "../../node_modules/bootstrap/scss/carousel";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
@@ -91,7 +92,7 @@ $navbar-dark-hover-color:white;
 
 header {
   img {
-    height:5em;
+    height:4em;
   }
 }
 
@@ -108,6 +109,11 @@ header {
 @media (min-width: 768px) {
   .container-width {
     width: 720px;
+  }
+  header {
+    img {
+      height:5em;
+    }
   }
 }
 
@@ -128,7 +134,4 @@ header {
     width: 1320px;
   }
 }
-
-
-
 

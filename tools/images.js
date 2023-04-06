@@ -3,7 +3,7 @@ const Jimp = require("jimp");
 const sourcePath="source/images/karuzela-main/";
 const targetPath="img/karuzela/";
 const desiredWidths = [540,720,960,1140,1320];
-const images = ["k1","k2","k3","k4"];
+const images = ["k1","k2","k3","k4","k5","k6","k7","k8","k9"];
 
 
 
@@ -11,7 +11,8 @@ main();
 
 async function main() {
 
-    images.forEach(name=>printImage(name));
+    images.forEach(name=>doOneImage(name,440,0.5));
+    //images.forEach(name=>printImage(name));
     const ratio = 1.5;
     // images.forEach(name=>{
     //     printImage(name)
