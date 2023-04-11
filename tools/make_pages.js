@@ -11,8 +11,8 @@ const cennikName = "cennik.html"
 main();
 
 function main(){
-//    make_page(cennikName);
-//    make_page("index.html");
+    make_page(cennikName);
+    make_page("index.html");
     make_page("galeria.html");
 }
 
@@ -26,8 +26,15 @@ function make_page(pageName){
     swapMain(frameDoc,pageDoc);
     swapScripts(frameDoc,pageDoc);
     adjustNavBar(frameDoc,pageName);
-
+    adjustImages(frameDoc);
     saveHtml(frame,pageName);
+}
+
+function adjustImages(frameDoc){
+    const images = frameDoc.getElementsByTagName("img");
+    for( i=0; i<images.length; i++) {
+        shortenAttribute(images[i], "src");
+    }
 }
 
 function adjustNavBar(frameDoc,makeActive){
