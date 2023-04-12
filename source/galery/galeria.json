@@ -1,61 +1,62 @@
 [
   {
-    "name": "halter bez oplotu",
+    "name": "Halter bez oplotu",
     "price": 4400,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "Halter treningowy basic, przeznaczony do pracy z ziemi lub jazdy, wykonany z liny poliestrowej o średnicy 6mm. Rozmiarówka standardowa: shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Zadaj nam pytanie o aktualnie dostępne kolory."
 
   },
   {
-    "name": "halter z plecionym nachrapnikiem",
+    "name": "Halter z plecionym nachrapnikiem",
     "price":5900,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "Halter treningowy z oplotem na nachrapniku, przeznaczony do pracy z ziemi lub jazdy, wykonany z liny poliestrowej o średnicy 6mm. Rozmiarówka standardowa: shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
   {
-    "name": "wodze zwykle 2,6m",
+    "name": "Wodze zwykle",
     "price": 7500 ,
     "option": {
       "name": "z karabińczykami ze stali nierdzewnej",
       "price":9500
     },
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "Wodze wykonane z liny o średnicy 14mm, standardowa długość 2,6m (na indywidualne życzenie klienta możliwość wykonania innej długości), wykończone skórą oraz karabińczykami. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
   {
-    "name": "wodze west dzielone 2x2m",
+    "name": "Wodze dzielone w stylu west",
     "price": 9500,
     "option": {
       "name": "z karabińczykami ze stali nierdzewnej",
       "price":11500
     },
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "Wodze dzielone w stylu west, wykonane z liny o średnicy 14mm, standardowa długość 2 x 2,2m (na indywidualne życzenie klienta możliwość wykonania innej długości), wykończone skórą oraz karabińczykami. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
 
   {
-    "name": "lina bez karabińczyka polipropylen",
-    "additional": " 3,6m/4,5/6,7m – 80/90/110 zł",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
-  },
-
-  {
-    "name": "lina bez karabińczyka poliester",
+    "name": "Lina do pracy z ziemi poliestrowa",
     "additional": "3,6m/4,5/6,7 – 110/120/140 zł",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
-  },
-
-
-  {
-    "name": "karabińczyk do liny nierdzewny",
-    "price": 3500,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "Ciężka lina poliestrowa, o średnicy 14mm. Długości standardowe 3.6m, 4.5m lub 6.7m (na indywidualne życzenie klienta możliwość wykonania innej długości), zakończona pętlą, z możliwością wplecenia karabińczyka (możliwość zakupu osobno) oraz skórzanym popperem. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
 
   {
-    "name": "karabińczyk do liny mosiężny",
+    "name": "Lina do pracy z ziemi polipropylenowa",
+    "additional": " 3,6m/4,5/6,7m – 80/90/110 zł",
+    "description": " Lina w lżejszej wersji polipropylenowej, o średnicy 14mm. Długości standardowe 3.6m, 4.5m lub 6.7m (na indywidualne życzenie klienta możliwość wykonania innej długości), zakończona pętlą, z możliwością wplecenia karabińczyka (możliwość zakupu osobno) oraz skórzanym popperem. Zadaj nam pytanie o aktualnie dostępne kolory."
+  },
+
+  {
+    "name": "Karabińczyk mosiężny",
     "price": 4500,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    "description": "oryginalny mosiężny karabińczyk bezpieczny, w stylu PNHS"
   },
 
   {
-    "name": "cordeo",
+    "name": "Karabińczyk nierdzewny",
+    "price": 3500,
+    "description": "karabińczyk nierdzewny z krętlikiem, długość 12cm"
+  },
+
+
+
+  {
+    "name": "Cordeo",
     "price": 7000,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
   }

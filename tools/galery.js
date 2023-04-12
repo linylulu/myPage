@@ -37,18 +37,16 @@ main()
 
 function main() {
     const galeryObj = readJson();
-    makeGaleryPage(galeryObj);
-//    doDirs(galeryObj);
-    //console.log(galeryObj);
-     //make_galery_dirs(sourceGaleryDir);
-//     make_galery_dirs(galeryObj,targetGaleryImgDir);
+    //make_directories(galeryObj,sourceGaleryDir);
 
+    galeryObj.forEach(item=>readSourceDirectory(item,sourceGaleryDir));
+    makeGaleryPage(galeryObj);
+    // galeryObj.forEach(item=>makeGaleryItemPage(item));
 }
 
 function makeGaleryPage(galeryObj){
-    // make_directories(galeryObj,targetGaleryImgDir);
-    // galeryObj.forEach(item=>readSourceDirectory(item,sourceGaleryDir));
-    // scaleAndCopyImages(galeryObj,sourceGaleryDir,targetGaleryImgDir);
+    make_directories(galeryObj,targetGaleryImgDir);
+    scaleAndCopyImages(galeryObj,sourceGaleryDir,targetGaleryImgDir);
     makeGaleryHtml(galeryObj);
 }
 
