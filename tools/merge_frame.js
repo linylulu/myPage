@@ -9,7 +9,7 @@ const frameFileName = sourceDir+frameName;
 
 module.exports = {mergeToFrame};
 
-function mergeToFrame(pageName){
+function mergeToFrame(pageName,makeActive=null){
     const frame = loadHtml(frameFileName);
     const frameDoc = frame.window.document;
     const page = loadHtml(sourceDir+pageName);
@@ -18,7 +18,7 @@ function mergeToFrame(pageName){
     swapHead(frameDoc,pageDoc);
     swapMain(frameDoc,pageDoc);
     swapScripts(frameDoc,pageDoc);
-    adjustNavBar(frameDoc,pageName);
+    adjustNavBar(frameDoc,pageName,makeActive!=null? makeActive : pageName);
     adjustImages(frameDoc);
     saveHtml(frame,pageName);
 }
@@ -30,16 +30,19 @@ function adjustImages(frameDoc){
     }
 }
 
-function adjustNavBar(frameDoc,makeActive){
+function adjustNavBar(frameDoc,thisPage,makeActive){
+    console.log(thisPage,makeActive);
     const navBar = frameDoc.getElementById("navBarContainer");
     const as = navBar.getElementsByTagName("a");
     for( i=0; i<as.length; i++){
         const aa = as[i];
         let href = shortenAttribute(aa,"href");
-        if( href === makeActive){
+        if( href === thisPage){
             aa.setAttribute("href","#");
-            aa.setAttribute("class",aa.getAttribute("class") + " active");
             aa.setAttribute("aria-current","page");
+        }
+        if( href === makeActive) {
+            aa.setAttribute("class", aa.getAttribute("class") + " active");
         }
     }
 }

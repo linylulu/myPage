@@ -7,9 +7,8 @@ const cons = require("./const");
 const mergeFrame = require("./merge_frame");
 
 
-module.exports = {makeGalery,makeGaleryItems,makeGalerySrcDir};
+module.exports = {makeGalery, makeGaleryItems, makeGalerySrcDir};
 const MAIN_IMAGE_NAME = "_main.jpg"
-
 
 
 const TEMPLATE_START = '<!--template-start-->';
@@ -17,14 +16,14 @@ const TEMPLATE_END = '<!--template-end-->';
 
 const CARD_TEMPLATE =
     '        <div class="col">\n' +
-    '<a class="unset" href="{$name}.html">\n'+
+    '<a class="unset" href="{$name}.html">\n' +
     '            <div class="card h-100">\n' +
     '                <img src="/img/galery/{$name}.jpg" class="card-img-top" alt="{$name}">\n' +
     '                <div class="card-body">\n' +
     '                    <h5 class="card-title">{$name}</h5>\n' +
     '                </div>\n' +
     '            </div>\n' +
-    '            </a>\n'+
+    '            </a>\n' +
     '        </div>\n';
 
 
@@ -50,51 +49,173 @@ function makeGaleryItems(args) {
 }
 
 function makeOneGaleryItem(item, args) {
-    console.log("makeOneGaleryItem:" + item.id + args);
+    let command;
+    if (args.length == 0) {
+        command = 'all';
+    } else {
+        command = args[0];
+    }
+
+    if (command === 'all') {
+        const galeryObj = readJson();
+        makeGaleryItemGfx(item);
+        makeGaleryItemHtml(item);
+        return;
+    }
+
+    if (command === 'gfx') {
+        const galeryObj = readJson();
+        makeGaleryItemGfx(item);
+        return;
+    }
+
+    if (command === 'html') {
+        const galeryObj = readJson();
+        makeGaleryItemHtml(item);
+        return;
+    }
+    console.log("invalid parameter: " + args);
 }
+
+const GAL_ITEM_DESC = "  <div class=\"p-4 fw-semibold fs-5\">\n" +
+    "    <p class=\"m-0\">{$description}</p>\n" +
+    "  </div>\n";
+
+function makeGaleryItemHtml(item) {
+    const pageName = item.name + ".html";
+    const template = readFileContent("source/_galery-item-template.html");
+    let prefix = template.substring(0, template.indexOf(TEMPLATE_START));
+    const postfix = template.substring(template.indexOf(TEMPLATE_END) + TEMPLATE_END.length);
+    prefix = prefix.replace(/\{\$name\}/g, item.name);
+    prefix += galeryItemCarousel(item);
+    prefix += GAL_ITEM_DESC.replace('{$description}', item.description);
+    prefix += postfix;
+    fs.writeFileSync("source/" + pageName, prefix);
+    mergeFrame.mergeToFrame(pageName,"galeria.html");
+}
+
+
+const GITEM_CAR_BEGIN = '<div id="carouselExampleCaptions" class="carousel slide">';
+
+const GITEM_CAR_END = '    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">\n' +
+    '      <span class="carousel-control-prev-icon" aria-hidden="true"></span>\n' +
+    '      <span class="visually-hidden">Previous</span>\n' +
+    '    </button>\n' +
+    '    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">\n' +
+    '      <span class="carousel-control-next-icon" aria-hidden="true"></span>\n' +
+    '      <span class="visually-hidden">Next</span>\n' +
+    '    </button>\n' +
+    '  </div>\n';
+
+function galeryItemCarousel(item) {
+    let result = GITEM_CAR_BEGIN;
+    result += carouselIndicators(item);
+    result += carouselInner(item);
+
+    result += GITEM_CAR_END;
+    return result;
+}
+
+function carouselIndicators(item) {
+    let result = "    <div class=\"carousel-indicators\">\n";
+    for (i = 0; i < item.images.length; i++) {
+        if (i == 0) {
+            result += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>\n';
+        } else {
+            result += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' + i + '" aria-label="Slide '+(i+1)+'"></button>\n';
+        }
+    }
+    result += "</div>\n";
+    return result;
+}
+
+const GAL_IT_CAR_IT =
+    '      <div class="carousel-item {$active}">\n' +
+    '        <img src="{$img_dir}{$img_no}.jpg" class="d-block w-100" alt="opis">\n' +
+    '        <div class="carousel-caption d-none d-md-block">\n' +
+    '{$image_desc}\n' +
+    '        </div>\n' +
+    '      </div>\n';
+function carouselInner(item){
+    let result = '<div class="carousel-inner">\n';
+    const imgDir = cons.GALERY_TARGET_IMG_DIR+item.name+'/';
+
+    for (i = 0; i < item.images.length; i++) {
+        let tmp = GAL_IT_CAR_IT.replace('{$active}', i==0 ? 'active' : '');
+        tmp = tmp.replace('{$img_dir}',imgDir);
+        tmp = tmp.replace('{$img_no}',i+1);
+        let d = item.images[i].description;
+        if( d == null){
+            d = '';
+        }
+        tmp = tmp.replace('{$image_desc}',d);
+        result += tmp;
+    }
+    result+='</div>\n';
+    return result;
+}
+
+function makeGaleryItemGfx(item) {
+    const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
+    const targetDir = cons.GALERY_TARGET_IMG_DIR + item.name + '/';
+    if (!fs.existsSync(targetDir)) {
+        console.log("making: " + targetDir);
+        fs.mkdirSync(targetDir);
+    } else {
+        console.log(targetDir + " existed");
+    }
+
+    let cnt = 1;
+    item.images.forEach(im => {
+        imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".jpg",
+            cons.GALERY_IMAGE_W, cons.GALERY_IMAGE_H);
+        cnt++;
+    });
+}
+
 
 function makeGalerySrcDir() {
     const galeryObj = readJson(false);
     galeryObj.forEach(item => {
         const dir = cons.GALERY_SOURCE_DIR + item.id;
         if (!fs.existsSync(dir)) {
-            console.log("making: "+dir);
+            console.log("making: " + dir);
             fs.mkdirSync(dir);
-        }else{
+        } else {
             console.log(dir + " existed");
         }
     });
 }
 
 
-
-function makeGalery(args){
+function makeGalery(args) {
     let command;
-    if( args.length == 0 || args[0] == 'all'){
+    if (args.length == 0) {
         command = 'all';
-    }else{
+    } else {
         command = args[0];
     }
-    if( command === 'all' ){
+    if (command === 'all') {
         const galeryObj = readJson();
+        makeGaleryGfx(galeryObj);
         makeGaleryHtml(galeryObj);
         return;
     }
-    if( command === 'gfx'){
+    if (command === 'gfx') {
         const galeryObj = readJson();
         makeGaleryGfx(galeryObj);
     }
-    if( command === 'html'){
+    if (command === 'html') {
         const galeryObj = readJson();
         makeGaleryHtml(galeryObj);
         return;
     }
-    console.log("invalid parameter: "+args);
+    console.log("invalid parameter: " + args);
 
 }
 
-function makeGaleryGfx(galeryObj){
-    galeryObj.forEach(item=>{
+function makeGaleryGfx(galeryObj) {
+    galeryObj.forEach(item => {
         const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
         imageUtils.readResizeSaveImg(sourceDir + item.mainImage, cons.GALERY_TARGET_IMG_DIR + item.name + ".jpg",
             cons.MAIN_IMAGE_W, cons.MAIN_IMAGE_H);
@@ -115,26 +236,6 @@ function makeGaleryHtml(galeryObj) {
     fs.writeFileSync("source/galeria.html", prefix);
     mergeFrame.mergeToFrame("galeria.html")
 }
-
-function scaleAndCopyImages(galeryObj, sourceGaleryDir, targetGaleryImgDir) {
-    for (i = 0; i < galeryObj.length; i++) {
-        scaleAndCopyImagesForOneDir(galeryObj[i], sourceGaleryDir, targetGaleryImgDir);
-    }
-}
-
-function scaleAndCopyImagesForOneDir(item, sourceGaleryDir, targetGaleryImgDir) {
-    const sourceDir = sourceGaleryDir + item.name + '/';
-    imageUtils.readResizeSaveImg(sourceDir + item.mainImage, targetGaleryImgDir + item.name + ".jpg",
-        MAIN_IMAGE_W, MAIN_IMAGE_H);
-    const targetDir = targetGaleryImgDir + item.name + '/';
-    let cnt = 1;
-    item.images.forEach(im => {
-        imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".jpg",
-            GALERY_IMAGE_W, GALERY_IMAGE_H);
-        cnt++;
-    });
-}
-
 
 
 async function doDirs(galeryObj) {
@@ -162,6 +263,7 @@ function readJson(withSources = true) {
     }
     return obj;
 }
+
 function readSourceDirectory(galeryObj, sourceGaleryDir) {
     const currentDir = sourceGaleryDir + galeryObj.id;
     const files = fs.readdirSync(currentDir);
@@ -174,6 +276,7 @@ function readSourceDirectory(galeryObj, sourceGaleryDir) {
         galeryObj.images.push({name: s, description: description});
     })
 }
+
 function readFileContent(fileName) {
     if (!fs.existsSync(fileName)) {
         return null;
