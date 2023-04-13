@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "multi-item-carousel.css",
+	"sources": [
+		"../source/scss/multi-item-carousel.scss"
+	],
+	"sourcesContent": [
+		"@media (max-width: 767px) {\r\n  .carousel-inner .carousel-item > div {\r\n    display: none;\r\n  }\r\n  .carousel-inner .carousel-item > div:first-child {\r\n    display: block;\r\n  }\r\n}\r\n\r\n.carousel-inner .carousel-item.active,\r\n.carousel-inner .carousel-item-next,\r\n.carousel-inner .carousel-item-prev {\r\n  display: flex;\r\n}\r\n\r\n/* medium and up screens */\r\n@media (min-width: 768px) {\r\n\r\n  .carousel-inner .carousel-item-end.active,\r\n  .carousel-inner .carousel-item-next {\r\n    transform: translateX(25%);\r\n  }\r\n\r\n  .carousel-inner .carousel-item-start.active,\r\n  .carousel-inner .carousel-item-prev {\r\n    transform: translateX(-25%);\r\n  }\r\n}\r\n\r\n.carousel-inner .carousel-item-end,\r\n.carousel-inner .carousel-item-start {\r\n  transform: translateX(0);\r\n}\r\n"
+	],
+	"names": [],
+	"mappings": "AAAA,MAAM,EAAE,SAAS,EAAE,KAAK,EACtB,AAAA,eAAe,CAAC,cAAc,CAAG,GAAG,AAAC,CACnC,OAAO,CAAE,IAAI,CACd,AACD,AAAA,eAAe,CAAC,cAAc,CAAG,GAAG,AAAA,YAAY,AAAC,CAC/C,OAAO,CAAE,KAAK,CACf,CAGH,AAAA,eAAe,CAAC,cAAc,AAAA,OAAO,CACrC,eAAe,CAAC,mBAAmB,CACnC,eAAe,CAAC,mBAAmB,AAAC,CAClC,OAAO,CAAE,IAAI,CACd,AAGD,MAAM,EAAE,SAAS,EAAE,KAAK,EAEtB,AAAA,eAAe,CAAC,kBAAkB,AAAA,OAAO,CACzC,eAAe,CAAC,mBAAmB,AAAC,CAClC,SAAS,CAAE,eAAe,CAC3B,AAED,AAAA,eAAe,CAAC,oBAAoB,AAAA,OAAO,CAC3C,eAAe,CAAC,mBAAmB,AAAC,CAClC,SAAS,CAAE,gBAAgB,CAC5B,CAGH,AAAA,eAAe,CAAC,kBAAkB,CAClC,eAAe,CAAC,oBAAoB,AAAC,CACnC,SAAS,CAAE,aAAa,CACzB"
+}

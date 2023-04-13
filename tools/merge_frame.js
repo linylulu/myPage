@@ -6,17 +6,10 @@ const { JSDOM } = jsdom;
 const sourceDir = "source/"
 const frameName = "_frame.html";
 const frameFileName = sourceDir+frameName;
-const cennikName = "cennik.html"
 
-main();
+module.exports = {mergeToFrame};
 
-function main(){
-    make_page(cennikName);
-    make_page("index.html");
-    make_page("galeria.html");
-}
-
-function make_page(pageName){
+function mergeToFrame(pageName){
     const frame = loadHtml(frameFileName);
     const frameDoc = frame.window.document;
     const page = loadHtml(sourceDir+pageName);

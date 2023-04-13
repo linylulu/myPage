@@ -15,7 +15,7 @@
   "homepage": "https://github.com/twbs/bootstrap-npm-starter#readme",
   "scripts": {
     "build": "npm run css",
-    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 source/scss -o css/",
+    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 source/scss source/multi-item-carousel -o css/",
     "css-lint": "stylelint scss/",
     "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",
     "css-purge": "purgecss --keyframes --css css/styles.css --content index.html \\\"node_modules/bootstrap/js/dist/{util,modal}.js\\\" --output css/",

@@ -1,16 +1,19 @@
 [
   {
+    "id": "halter",
     "name": "Halter bez oplotu",
     "price": 4400,
     "description": "Halter treningowy basic, przeznaczony do pracy z ziemi lub jazdy, wykonany z liny poliestrowej o średnicy 6mm. Rozmiarówka standardowa: shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Zadaj nam pytanie o aktualnie dostępne kolory."
 
   },
   {
+    "id": "halter_z_plecionym",
     "name": "Halter z plecionym nachrapnikiem",
     "price":5900,
     "description": "Halter treningowy z oplotem na nachrapniku, przeznaczony do pracy z ziemi lub jazdy, wykonany z liny poliestrowej o średnicy 6mm. Rozmiarówka standardowa: shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
   {
+    "id": "wodze_zwykle",
     "name": "Wodze zwykle",
     "price": 7500 ,
     "option": {
@@ -20,6 +23,7 @@
     "description": "Wodze wykonane z liny o średnicy 14mm, standardowa długość 2,6m (na indywidualne życzenie klienta możliwość wykonania innej długości), wykończone skórą oraz karabińczykami. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
   {
+    "id": "wodze_west",
     "name": "Wodze dzielone w stylu west",
     "price": 9500,
     "option": {
@@ -30,32 +34,35 @@
   },
 
   {
+    "id": "lina_cienszka",
     "name": "Lina do pracy z ziemi poliestrowa",
     "additional": "3,6m/4,5/6,7 – 110/120/140 zł",
     "description": "Ciężka lina poliestrowa, o średnicy 14mm. Długości standardowe 3.6m, 4.5m lub 6.7m (na indywidualne życzenie klienta możliwość wykonania innej długości), zakończona pętlą, z możliwością wplecenia karabińczyka (możliwość zakupu osobno) oraz skórzanym popperem. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
 
   {
+    "id": "lina_letka",
     "name": "Lina do pracy z ziemi polipropylenowa",
     "additional": " 3,6m/4,5/6,7m – 80/90/110 zł",
     "description": " Lina w lżejszej wersji polipropylenowej, o średnicy 14mm. Długości standardowe 3.6m, 4.5m lub 6.7m (na indywidualne życzenie klienta możliwość wykonania innej długości), zakończona pętlą, z możliwością wplecenia karabińczyka (możliwość zakupu osobno) oraz skórzanym popperem. Zadaj nam pytanie o aktualnie dostępne kolory."
   },
 
   {
+    "id": "karabol_mosiadz",
     "name": "Karabińczyk mosiężny",
     "price": 4500,
     "description": "oryginalny mosiężny karabińczyk bezpieczny, w stylu PNHS"
   },
 
   {
+    "id": "karabol_inox",
     "name": "Karabińczyk nierdzewny",
     "price": 3500,
     "description": "karabińczyk nierdzewny z krętlikiem, długość 12cm"
   },
 
-
-
   {
+    "id": "cordeo",
     "name": "Cordeo",
     "price": 7000,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
