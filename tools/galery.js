@@ -18,7 +18,7 @@ const CARD_TEMPLATE =
     '        <div class="col">\n' +
     '<a class="unset" href="{$name}.html">\n' +
     '            <div class="card h-100">\n' +
-    '                <img src="/img/galery/{$name}.jpg" class="card-img-top" alt="{$name}">\n' +
+    '                <img src="/img/galery/{$name}.webp" class="card-img-top" alt="{$name}">\n' +
     '                <div class="card-body">\n' +
     '                    <h5 class="card-title">{$name}</h5>\n' +
     '                </div>\n' +
@@ -217,7 +217,7 @@ function makeGalery(args) {
 function makeGaleryGfx(galeryObj) {
     galeryObj.forEach(item => {
         const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
-        imageUtils.readResizeSaveImg(sourceDir + item.mainImage, cons.GALERY_TARGET_IMG_DIR + item.name + ".jpg",
+        imageUtils.readResizeSaveImg(sourceDir + item.mainImage, cons.GALERY_TARGET_IMG_DIR + item.name + ".webp",
             cons.MAIN_IMAGE_W, cons.MAIN_IMAGE_H);
     });
 }

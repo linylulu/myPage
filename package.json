@@ -51,6 +51,7 @@
     "stylelint": "^14.9.1",
     "stylelint-config-twbs-bootstrap": "^4.0.0",
     "jimp": "^0.22.5",
-    "jsdom": "^21.1.1"
+    "jsdom": "^21.1.1",
+    "sharp": "^0.32.0"
   }
 }
