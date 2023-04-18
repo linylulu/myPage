@@ -7,7 +7,7 @@ const cons = require("./const");
 const mergeFrame = require("./merge_frame");
 
 
-module.exports = {makeGalery, makeGaleryItems, makeGalerySrcDir};
+module.exports = {makeCennikHtml, makeGalery, makeGaleryItems, makeGalerySrcDir};
 const MAIN_IMAGE_NAME = "_main.jpg"
 
 
@@ -77,9 +77,46 @@ function makeOneGaleryItem(item, args) {
     console.log("invalid parameter: " + args);
 }
 
-const GAL_ITEM_DESC = "  <div class=\"p-4 fw-semibold fs-5\">\n" +
-    "    <p class=\"m-0\">{$description}</p>\n" +
+/*
+    <div class="row p-4 fw-semibold fs-5">
+        <p class="col-sm-9 m-0">Halter treningowy basic, przeznaczony do pracy z ziemi lub jazdy, wykonany z liny
+            poliestrowej o średnicy 6mm. Rozmiarówka standardowa: shetty, pony, cob, full, xfull. Istnieje również
+            możliwość wykonania haltera na wymiar. Zadaj nam pytanie o aktualnie dostępne kolory.</p>
+        <div class="pt-3 pt-sm-0 col-sm-3">
+            <p class="text-center">Cena:</p>
+            <ul>
+                <li>wodze zwykle – 75zł</li>
+                <li>z karabińczykami ze stali nierdzewnej 95zł)</li>
+            </ul>
+        </div>
+    </div>
+
+*/
+
+
+const GAL_ITEM_DESC = "  <div class=\"row p-4 fw-semibold fs-5\">\n" +
+    "    <p class=\"col-sm-9 m-0\">{$description}</p>\n" +
+    "        <div class=\"pt-3 pt-sm-0 col-sm-3\">\n" +
+    "            <p class=\"text-center\">Cena:</p>\n" +
+    "            <ul class=\"text-lowercase\">\n{$prices}" +
+    "            </ul>\n" +
+    "        </div>\n" +
     "  </div>\n";
+
+function calcPrices(item) {
+    if (item.prices.length == 1) {
+        let tmp = '<li>' + item.name + ' - ' + item.prices[0].price + 'zł</li>';
+        if (item.option != null) {
+            tmp += '<li>' + item.option.name + ' - ' + item.option.price + 'zł</li>'
+        }
+        return tmp;
+    }
+    let tmp = '';
+    item.prices.forEach(pr => {
+        tmp += '<li>' + pr.name + ' - ' + pr.price + 'zł</li>\n';
+    });
+    return tmp;
+}
 
 function makeGaleryItemHtml(item) {
     const pageName = item.name + ".html";
@@ -88,10 +125,12 @@ function makeGaleryItemHtml(item) {
     const postfix = template.substring(template.indexOf(TEMPLATE_END) + TEMPLATE_END.length);
     prefix = prefix.replace(/\{\$name\}/g, item.name);
     prefix += galeryItemCarousel(item);
-    prefix += GAL_ITEM_DESC.replace('{$description}', item.description);
+    let desc = GAL_ITEM_DESC.replace('{$description}', item.description);
+    desc = desc.replace('{$prices}', calcPrices(item))
+    prefix += desc;
     prefix += postfix;
     fs.writeFileSync("source/" + pageName, prefix);
-    mergeFrame.mergeToFrame(pageName,"galeria.html");
+    mergeFrame.mergeToFrame(pageName, "galeria.html");
 }
 
 
@@ -104,15 +143,19 @@ const GITEM_CAR_END = '    <button class="carousel-control-prev" type="button" d
     '    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">\n' +
     '      <span class="carousel-control-next-icon" aria-hidden="true"></span>\n' +
     '      <span class="visually-hidden">Next</span>\n' +
-    '    </button>\n' +
-    '  </div>\n';
+    '    </button>\n';
 
 function galeryItemCarousel(item) {
-    let result = GITEM_CAR_BEGIN;
-    result += carouselIndicators(item);
+    const makeCarousel = item.images.length > 1;
+    let result = makeCarousel ? GITEM_CAR_BEGIN : '';
+    if (makeCarousel) {
+        result += carouselIndicators(item);
+    }
     result += carouselInner(item);
-
-    result += GITEM_CAR_END;
+    if (makeCarousel) {
+        result += GITEM_CAR_END;
+    }
+    result += '</div>\n';
     return result;
 }
 
@@ -122,7 +165,7 @@ function carouselIndicators(item) {
         if (i == 0) {
             result += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>\n';
         } else {
-            result += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' + i + '" aria-label="Slide '+(i+1)+'"></button>\n';
+            result += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>\n';
         }
     }
     result += "</div>\n";
@@ -131,27 +174,28 @@ function carouselIndicators(item) {
 
 const GAL_IT_CAR_IT =
     '      <div class="carousel-item {$active}">\n' +
-    '        <img src="{$img_dir}{$img_no}.jpg" class="d-block w-100" alt="opis">\n' +
+    '        <img src="{$img_dir}{$img_no}.webp" class="d-block w-100" alt="opis">\n' +
     '        <div class="carousel-caption d-none d-md-block">\n' +
     '{$image_desc}\n' +
     '        </div>\n' +
     '      </div>\n';
-function carouselInner(item){
+
+function carouselInner(item) {
     let result = '<div class="carousel-inner">\n';
-    const imgDir = cons.GALERY_TARGET_IMG_DIR+item.name+'/';
+    const imgDir = cons.GALERY_TARGET_IMG_DIR + item.name + '/';
 
     for (i = 0; i < item.images.length; i++) {
-        let tmp = GAL_IT_CAR_IT.replace('{$active}', i==0 ? 'active' : '');
-        tmp = tmp.replace('{$img_dir}',imgDir);
-        tmp = tmp.replace('{$img_no}',i+1);
+        let tmp = GAL_IT_CAR_IT.replace('{$active}', i == 0 ? 'active' : '');
+        tmp = tmp.replace('{$img_dir}', imgDir);
+        tmp = tmp.replace('{$img_no}', i + 1);
         let d = item.images[i].description;
-        if( d == null){
+        if (d == null) {
             d = '';
         }
-        tmp = tmp.replace('{$image_desc}',d);
+        tmp = tmp.replace('{$image_desc}', d);
         result += tmp;
     }
-    result+='</div>\n';
+    result += '</div>\n';
     return result;
 }
 
@@ -167,7 +211,7 @@ function makeGaleryItemGfx(item) {
 
     let cnt = 1;
     item.images.forEach(im => {
-        imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".jpg",
+        imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".webp",
             cons.GALERY_IMAGE_W, cons.GALERY_IMAGE_H);
         cnt++;
     });
@@ -237,22 +281,38 @@ function makeGaleryHtml(galeryObj) {
     mergeFrame.mergeToFrame("galeria.html")
 }
 
+function makeCennikHtml() {
+    const galeryObj = readJson();
+    const template = readFileContent("source/_cennik-template.html");
+    let prefix = template.substring(0, template.indexOf(TEMPLATE_START));
+    const postfix = template.substring(template.indexOf(TEMPLATE_END) + TEMPLATE_END.length);
 
-async function doDirs(galeryObj) {
-    for (i = 0; i < galeryObj.length; i++) {
-        await doOneItem(galeryObj[i]);
-    }
-}
-
-async function doOneItem(item) {
-    const name = item.name;
-    const dir = sourceGaleryDir + name;
-    dirObj = fs.readdirSync(dir);
-    const fileName = dir + "/" + dirObj[0];
-    console.log(fileName);
-    const image = await imageUtils.read_jpg(fileName);
-
-    console.log("awaited")
+    galeryObj.forEach(item => {
+        let tmp = '<li>';
+        tmp += '<a href="' + item.name + '.html">' + item.name;
+        if (item.prices.length == 1) {
+            tmp += " - " + item.prices[0].price + 'zł';
+        } else {
+            let desc = '';
+            let price = '';
+            let prefix = '';
+            item.prices.forEach(pr => {
+                desc += prefix + pr.name;
+                price += prefix + pr.price + 'zł';
+                prefix = '/';
+            });
+            tmp += ' ' + desc + ' - ' + price;
+        }
+        if (item.option != null) {
+            tmp += ' (' + item.option.name + ' ' + item.option.price + 'zł)';
+        }
+        tmp += '</a>\n';
+        tmp += '</li>';
+        prefix += tmp;
+    });
+    prefix += postfix;
+    fs.writeFileSync("source/cennik.html", prefix);
+    mergeFrame.mergeToFrame("cennik.html")
 }
 
 function readJson(withSources = true) {

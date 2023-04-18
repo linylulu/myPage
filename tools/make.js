@@ -21,6 +21,11 @@ function make(argv){
         return;
     }
 
+    if( command === "cennik"){
+        galery.makeCennikHtml();
+        return;
+    }
+
     if(command === 'frame'){
         mergeFrame.mergeToFrame(params[0]+".html");
         return;

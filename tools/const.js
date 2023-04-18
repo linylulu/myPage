@@ -7,8 +7,8 @@ const GALERY_TARGET_IMG_DIR = "img/galery/";
 const MAIN_IMAGE_W = 400;
 const MAIN_IMAGE_H = 400;
 
-const GALERY_IMAGE_W = 768;
-const GALERY_IMAGE_H = 380;
+const GALERY_IMAGE_W = 800;
+const GALERY_IMAGE_H = 400;
 
 module.exports = {
     GALERY_SOURCE_DIR,
