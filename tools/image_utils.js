@@ -8,6 +8,18 @@ module.exports = class ImageUtils {
         newImage.toFile(newName);
         console.log("WRITTEN " + newName)
     }
+    async readRotateResizeSaveImg(oldName, newName, newW, newH) {
+        let img = await this.read_jpg(oldName);
+        const metadata = await img.metadata();
+        console.log("size " + metadata.width + " " + metadata.height);
+        if( newW > newH && metadata.width < metadata.height){
+
+            img = img.rotate(90);
+        }
+        const newImage = this.resizeImg(img,newW,newH);
+        newImage.toFile(newName);
+        console.log("WRITTEN " + newName)
+    }
 
      async  read_jpg(name) {
         return sharp(name);

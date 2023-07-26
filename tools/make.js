@@ -1,5 +1,6 @@
 const galery = require("./galery");
 const mergeFrame = require("./merge_frame");
+const index = require("./index");
 
 make(process.argv);
 
@@ -15,6 +16,11 @@ function make(argv){
         galery.makeGalery(params);
         return;
     }
+    if( command == "index"){
+        index.makeIndex(params);
+        return;
+    }
+
 
     if( command == "gsrcdir"){
         galery.makeGalerySrcDir();
