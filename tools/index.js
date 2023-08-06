@@ -46,12 +46,17 @@ function lowerCase(){
 
 }
 function dirToLower(dir){
-    const files = fs.readdirSync(dir);
+    const files = fs.readdirSync(dir,{ withFileTypes: true });
     console.log(files);
     files.forEach(s=>{
-        const name = s.toLowerCase();
-        fs.renameSync(dir+"/"+s,dir+"/"+name);
+        if( s.isDirectory()){
+            dirToLower(dir+"/"+s.name);
+        }
+        const oldName = dir+"/"+s.name;
+        const name = dir+"/"+s.name.toLowerCase();
+        fs.renameSync(oldName,name);
     });
+    //const subdirs = fs.readdirSync(dir).filter();
 }
 
 //function doOneImage(name, w,h){
