@@ -12,9 +12,9 @@ const IM_H = 220;
 const sourcePath="source/images/karuzela-main/";
 const targetPath="img/karuzela/";
 const images = ["k1","k2","k3","k4","k5","k6","k7","k8","k9"];
-module.exports = {makeIndex};
+module.exports = {makeIndex,lowerCase};
 
-const robo_dir = "C:/pro666/javaScript/myPage/img/hgw/";
+const robo_dir = "../img/hgw/";
 
 function doDir(){
     const files = fs.readdirSync(robo_dir).filter(s => s.endsWith(".JPG"));
@@ -37,9 +37,21 @@ function makeIndex(args) {
 
 
 function doOneImage(name, w,h){
-    imageUtils.readRotateResizeSaveImg(name+'.jpg',
+    imageUtils.readRotateResizeSaveImg(name+'.JPG',
         name+'_'+w+'.webp',
         w,h);
+}
+function lowerCase(){
+    dirToLower("../source/zdjecia")
+
+}
+function dirToLower(dir){
+    const files = fs.readdirSync(dir);
+    console.log(files);
+    files.forEach(s=>{
+        const name = s.toLowerCase();
+        fs.renameSync(dir+"/"+s,dir+"/"+name);
+    });
 }
 
 //function doOneImage(name, w,h){

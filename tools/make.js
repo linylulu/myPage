@@ -37,5 +37,10 @@ function make(argv){
         return;
     }
 
+    if(command === "tolowercase"){
+        index.lowerCase();
+        return;
+    }
+
     console.log("invalid command "+command);
 }
