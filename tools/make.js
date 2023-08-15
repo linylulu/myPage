@@ -42,5 +42,10 @@ function make(argv){
         return;
     }
 
+    if(command === "addsizes"){
+        index.addSizesToNames();
+        return;
+    }
+
     console.log("invalid command "+command);
 }
