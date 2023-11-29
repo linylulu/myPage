@@ -12,7 +12,7 @@ const targetPath = "img/karuzela/";
 const images = ["k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9"];
 module.exports = {makeIndex, lowerCase, addSizesToNames};
 
-const robo_dir = "../img/hgw/";
+const robo_dir = "/img/hgw/";
 
 function doDir() {
     const files = fs.readdirSync(robo_dir).filter(s => s.endsWith(".jpg"));
@@ -41,8 +41,7 @@ function doOneImage(name, w, h) {
 }
 
 function lowerCase() {
-    dirToLower("../source/zdjecia")
-
+    dirToLower("/source/zdjecia")
 }
 
 function dirToLower(dir) {
@@ -59,7 +58,7 @@ function dirToLower(dir) {
 }
 
 async function addSizesToNames() {
-    await _addSizesToNames("../source/zdjecia")
+    await _addSizesToNames("/source/zdjecia")
 }
 
 async function _addSizesToNames(dir) {

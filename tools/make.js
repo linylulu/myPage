@@ -17,6 +17,7 @@ function make(argv){
         return;
     }
     if( command == "index"){
+        console.log("index" + params);
         index.makeIndex(params);
         return;
     }
