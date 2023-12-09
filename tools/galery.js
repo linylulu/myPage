@@ -11,14 +11,12 @@ module.exports = {makeCennikHtml, makeGalery, makeGaleryItems, makeGalerySrcDir}
 const MAIN_IMAGE_NAME = "_main.jpg"
 
 
-const TEMPLATE_START = '<!--template-start-->';
-const TEMPLATE_END = '<!--template-end-->';
 
 const CARD_TEMPLATE =
     '        <div class="col">\n' +
     '<a class="unset" href="{$name}.html">\n' +
     '            <div class="card h-100">\n' +
-    '                <img src="/img/galery/{$name}.webp" class="card-img-top" alt="{$name}">\n' +
+    '                <img src="{$image}" class="card-img-top" alt="{$name}">\n' +
     '                <div class="card-body">\n' +
     '                    <h5 class="card-title">{$name}</h5>\n' +
     '                </div>\n' +
@@ -49,32 +47,7 @@ function makeGaleryItems(args) {
 }
 
 function makeOneGaleryItem(item, args) {
-    let command;
-    if (args.length == 0) {
-        command = 'all';
-    } else {
-        command = args[0];
-    }
-
-    if (command === 'all') {
-        const galeryObj = readJson();
-        makeGaleryItemGfx(item);
-        makeGaleryItemHtml(item);
-        return;
-    }
-
-    if (command === 'gfx') {
-        const galeryObj = readJson();
-        makeGaleryItemGfx(item);
-        return;
-    }
-
-    if (command === 'html') {
-        const galeryObj = readJson();
-        makeGaleryItemHtml(item);
-        return;
-    }
-    console.log("invalid parameter: " + args);
+    makeGaleryItemHtml(item);
 }
 
 /*
@@ -174,7 +147,7 @@ function carouselIndicators(item) {
 
 const GAL_IT_CAR_IT =
     '      <div class="carousel-item {$active}">\n' +
-    '        <img src="{$img_dir}{$img_no}.webp" class="d-block w-100" alt="opis">\n' +
+    '        <img src="{$img_dir}{$img_no}" class="d-block w-100" alt="opis">\n' +
     '        <div class="carousel-caption d-none d-md-block">\n' +
     '{$image_desc}\n' +
     '        </div>\n' +
@@ -182,12 +155,12 @@ const GAL_IT_CAR_IT =
 
 function carouselInner(item) {
     let result = '<div class="carousel-inner">\n';
-    const imgDir = cons.GALERY_TARGET_IMG_DIR + item.name + '/';
+    const imgDir = cons.GALERY_TARGET_IMG_DIR + "/" + item.id + '/';
 
     for (i = 0; i < item.images.length; i++) {
         let tmp = GAL_IT_CAR_IT.replace('{$active}', i == 0 ? 'active' : '');
         tmp = tmp.replace('{$img_dir}', imgDir);
-        tmp = tmp.replace('{$img_no}', i + 1);
+        tmp = tmp.replace('{$img_no}', item.images[i].name);
         let d = item.images[i].description;
         if (d == null) {
             d = '';
@@ -199,23 +172,23 @@ function carouselInner(item) {
     return result;
 }
 
-function makeGaleryItemGfx(item) {
-    const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
-    const targetDir = cons.GALERY_TARGET_IMG_DIR + item.name + '/';
-    if (!fs.existsSync(targetDir)) {
-        console.log("making: " + targetDir);
-        fs.mkdirSync(targetDir);
-    } else {
-        console.log(targetDir + " existed");
-    }
-
-    let cnt = 1;
-    item.images.forEach(im => {
-        imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".webp",
-            cons.GALERY_IMAGE_W, cons.GALERY_IMAGE_H);
-        cnt++;
-    });
-}
+// function makeGaleryItemGfx(item) {
+//     const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
+//     const targetDir = cons.GALERY_TARGET_IMG_DIR + item.name + '/';
+//     if (!fs.existsSync(targetDir)) {
+//         console.log("making: " + targetDir);
+//         fs.mkdirSync(targetDir);
+//     } else {
+//         console.log(targetDir + " existed");
+//     }
+//
+//     let cnt = 1;
+//     item.images.forEach(im => {
+//         imageUtils.readResizeSaveImg(sourceDir + im.name, targetDir + cnt + ".webp",
+//             cons.GALERY_IMAGE_W, cons.GALERY_IMAGE_H);
+//         cnt++;
+//     });
+// }
 
 
 function makeGalerySrcDir() {
@@ -260,10 +233,32 @@ function makeGalery(args) {
 
 function makeGaleryGfx(galeryObj) {
     galeryObj.forEach(item => {
-        const sourceDir = cons.GALERY_SOURCE_DIR + item.id + '/';
-        imageUtils.readResizeSaveImg(sourceDir + item.mainImage, cons.GALERY_TARGET_IMG_DIR + item.name + ".webp",
-            cons.MAIN_IMAGE_W, cons.MAIN_IMAGE_H);
+        convertGaleryImages(item.id);
     });
+}
+
+function convertGaleryImages(subDir) {
+    const sourceDir = cons.GALERY_SOURCE_DIR + subDir;
+    const targetDir = cons.GALERY_TARGET_IMG_DIR + "/" + subDir;
+    const files = fs.readdirSync(sourceDir);
+    makeDir(targetDir);
+    files.filter(s => s.endsWith("_1x1.jpg")).forEach(s => {
+        var newName = targetDir + "/"+ s.replace("_1x1.jpg", "_400x400.webp")
+        imageUtils.readResizeSaveImg(sourceDir + "/" + s, newName, 400, 400);
+    });
+    files.filter(s => s.endsWith("_16x9.jpg")).forEach(s => {
+        var newName = targetDir + "/"+ s.replace("_16x9.jpg", "_800x450.webp")
+        imageUtils.readResizeSaveImg(sourceDir + "/" + s, newName, 800, 450);
+    });
+}
+
+function makeDir(dir) {
+    if (!fs.existsSync(dir)) {
+        console.log("making: " + dir);
+        fs.mkdirSync(dir);
+    } else {
+        console.log(dir + " existed");
+    }
 }
 
 function makeGaleryHtml(galeryObj) {
@@ -271,8 +266,11 @@ function makeGaleryHtml(galeryObj) {
     let prefix = template.substring(0, template.indexOf(TEMPLATE_START));
     const postfix = template.substring(template.indexOf(TEMPLATE_END) + TEMPLATE_END.length);
     galeryObj.forEach(item => {
-        let str = CARD_TEMPLATE.replace(/\{\$name\}/g, item.name);
-        str = str.replace('{$description}', item.description);
+        var imgDir = cons.GALERY_TARGET_IMG_DIR + "/" + item.id;
+        var mainImage = fs.readdirSync(imgDir).filter(s=>s.endsWith("_400x400.webp"))[0];
+        var str = CARD_TEMPLATE.replace(/\{\$name\}/g, item.name);
+        str = str.replace(/\{\$image\}/g, imgDir+"/"+mainImage);
+        //str = str.replace('{$description}', item.description);
         prefix += str;
 
     });
@@ -319,30 +317,25 @@ function readJson(withSources = true) {
     const jsonContent = fs.readFileSync(cons.GALERY_JSON_NAME, 'utf8');
     const obj = JSON.parse(jsonContent);
     if (withSources) {
-        obj.forEach(item => readSourceDirectory(item, cons.GALERY_SOURCE_DIR));
+        obj.forEach(item => readSourceDirectory(item, cons.GALERY_TARGET_IMG_DIR));
     }
     return obj;
 }
 
 function readSourceDirectory(galeryObj, sourceGaleryDir) {
-    const currentDir = sourceGaleryDir + galeryObj.id;
+    const currentDir = sourceGaleryDir + "/" + galeryObj.id;
     const files = fs.readdirSync(currentDir);
-    const jpegFiles = files.filter(s => s.endsWith(".jpg"));
-    const o = jpegFiles.find(s => s == MAIN_IMAGE_NAME);
-    galeryObj.mainImage = o != null ? o : jpegFiles[0];
+    console.log("files:",files);
+    const jpegFiles = files.filter(s => s.endsWith("_800x450.webp"));
+    console.log("jpeg:",jpegFiles);
     galeryObj.images = [];
-    jpegFiles.forEach(s => {
-        const description = readFileContent((currentDir + '/' + s).replace('.jpg', '.txt'))
+     jpegFiles.forEach(s => {
+        const description = "";
         galeryObj.images.push({name: s, description: description});
     })
+    console.log("images:",galeryObj.images);
 }
 
-function readFileContent(fileName) {
-    if (!fs.existsSync(fileName)) {
-        return null;
-    }
-    return fs.readFileSync(fileName, 'utf8');
-}
 
 
 

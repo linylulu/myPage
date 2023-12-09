@@ -2,6 +2,9 @@ const ImageUtils = require('./image_utils.js')
 const imageUtils = new ImageUtils();
 const cons = require("./const");
 const fs = require("fs");
+const mergeFrame = require("./merge_frame");
+const Utils = require('./utils')
+const utils = new Utils();
 
 const IM_W = 440;
 const IM_H = 220;
@@ -13,6 +16,39 @@ const images = ["k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9"];
 module.exports = {makeIndex, lowerCase, addSizesToNames};
 
 const robo_dir = "/img/hgw/";
+
+
+function makeIndex(args) {
+    const images = utils.readImagesList("img","_800x450.webp")
+    const template = utils.readFileContent("source/_index-template.html");
+    let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
+    const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
+    let active = "active";
+    images.forEach(img=>{
+        prefix += makeCarouselItem(img,active);
+        active = "";
+    });
+
+    prefix += postfix;
+    fs.writeFileSync("source/index.html", prefix);
+    mergeFrame.mergeToFrame("index.html")
+}
+
+const CAROUSEL_ITEM_TEMPLATE =
+    '<div class="carousel-item ${active}">\n' +
+    '    <div class="col-md-6 col-xl-4">\n' +
+    '        <img class="img-fluid" src="${image}">\n' +
+    '    </div>\n' +
+    '</div>';
+
+
+function makeCarouselItem(image, active){
+    let response = CAROUSEL_ITEM_TEMPLATE;
+    response = response.replace('${active}', active);
+    response = response.replace('${image}', image);
+    return response;
+}
+
 
 function doDir() {
     const files = fs.readdirSync(robo_dir).filter(s => s.endsWith(".jpg"));
@@ -28,10 +64,6 @@ function doDir() {
     });
 }
 
-function makeIndex(args) {
-//    images.forEach(im => doOneImage(im,IM_W,IM_H));
-    doDir();
-}
 
 
 function doOneImage(name, w, h) {

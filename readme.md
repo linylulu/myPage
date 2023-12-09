@@ -1,3 +1,5 @@
+npm start
+
 proporcje obrazków 1:1 16:9
 rozmiary obrazków 
 karuzela głowne okno index - 440x227(16:9)
