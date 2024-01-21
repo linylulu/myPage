@@ -8,15 +8,14 @@
 //$body-bg: #c0c0a0;
 $body-bg: #d0d0d0;
 
-$nav-pills-border-radius:0;
-$nav-pills-link-active-color:white;
-$nav-pills-link-active-bg:#808080;
-$navbar-dark-color:white;
-$navbar-dark-hover-color:white;
+$nav-pills-link-active-color: white;
+$nav-pills-link-active-bg: #808080;
+$navbar-dark-color: white;
+$navbar-dark-hover-color: white;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
-
+@import "../../node_modules/bootstrap/scss/variables-dark";
 // 4. Include any default map overrides here
 
 // 5. Include remainder of required parts
@@ -37,14 +36,15 @@ $navbar-dark-hover-color:white;
 @import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/nav";
 
-@import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/card";
 @import "../../node_modules/bootstrap/scss/breadcrumb";
+
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/forms";
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here// @import "bootstrap/scss/print";
-
 
 //
 // Custom styles
@@ -60,9 +60,11 @@ $navbar-dark-hover-color:white;
 //.bi {
 //  fill: currentcolor;
 //}
+
 .nav-pills {
   li:hover {
     background-color: #909090;
+    border-radius: $nav-pills-border-radius;
   }
 }
 
@@ -94,7 +96,7 @@ $navbar-dark-hover-color:white;
 
 header {
   img {
-    height:4em;
+    height: 6em;
   }
 }
 
@@ -105,6 +107,26 @@ header {
     color: black;
   }
 }
+@media (min-width: 576px) {
+  .w-sm-fit-content  {
+    width: fit-content;
+  }
+}
+.invisible{
+  display:none;
+}
 
+.js-slick-carousel{
+}
+
+.write-us-form-input  {
+  display: block;
+  width: 100%;
+}
+.write-us-form-textarea {
+  display: block;
+  width: 100%;
+
+}
 
 

@@ -6,74 +6,50 @@ const mergeFrame = require("./merge_frame");
 const Utils = require('./utils')
 const utils = new Utils();
 
-const IM_W = 440;
-const IM_H = 220;
+module.exports = {makeIndex, makeCarouselGfx, lowerCase, addSizesToNames};
 
 
-const sourcePath = "source/images/karuzela-main/";
-const targetPath = "img/karuzela/";
-const images = ["k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9"];
-module.exports = {makeIndex, lowerCase, addSizesToNames};
-
-const robo_dir = "/img/hgw/";
 
 
-function makeIndex(args) {
-    const images = utils.readImagesList("img","_800x450.webp")
-    const template = utils.readFileContent("source/_index-template.html");
+async function makeCarouselGfx(){
+    const images = utils.readImagesList(cons.CAROUSEL_SRC_DIR,"_1x1.jpg");
+    utils.makeDir(cons.rooted(cons.CAROUSEL_IMG_DIR));
+    images.forEach(s=>{
+        const  newName = cons.rooted(cons.CAROUSEL_IMG_DIR) + "/"+ s.name.replace("_1x1.jpg", "_440x440.webp");
+        imageUtils.readResizeSaveImg(s.path + "/" + s.name, newName, 440, 440);
+    });
+}
+
+function makeIndex() {
+    const images = utils.readImagesList(cons.rooted(cons.CAROUSEL_IMG_DIR),'_440x440.webp')
+    images.sort((a,b)=>{
+        return a.name.localeCompare(b.name);
+    })
+    const template = utils.readFileContent(cons.TEMPLATES_SRC_DIR + '/_index-template.html');
     let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
-    let active = "active";
     images.forEach(img=>{
-        prefix += makeCarouselItem(img,active);
+        prefix += makeCarouselItem(cons.CAROUSEL_IMG_DIR+"/"+img.name);
         active = "";
     });
-
     prefix += postfix;
-    fs.writeFileSync("source/index.html", prefix);
-    mergeFrame.mergeToFrame("index.html")
+    mergeFrame.saveAndMerge('index.html',prefix)
 }
 
 const CAROUSEL_ITEM_TEMPLATE =
-    '<div class="carousel-item ${active}">\n' +
-    '    <div class="col-md-6 col-xl-4">\n' +
-    '        <img class="img-fluid" src="${image}">\n' +
-    '    </div>\n' +
-    '</div>';
+    '        <div>\n' +
+    '            <img class="img-fluid" src="{$image}">\n' +
+    '        </div>\n';
 
 
 function makeCarouselItem(image, active){
     let response = CAROUSEL_ITEM_TEMPLATE;
-    response = response.replace('${active}', active);
-    response = response.replace('${image}', image);
+    response = response.replace('{$image}', image);
     return response;
 }
 
-
-function doDir() {
-    const files = fs.readdirSync(robo_dir).filter(s => s.endsWith(".jpg"));
-    console.log(files);
-    //const jpegFiles = files
-    files.forEach(s => {
-        const name = s.replace(".JPG", "");
-        const n = robo_dir + name;
-        doOneImage(n, 440, 247);
-        doOneImage(n, 400, 400);
-//        doOneImage(n, 800,400);
-
-    });
-}
-
-
-
-function doOneImage(name, w, h) {
-    imageUtils.readRotateResizeSaveImg(name + '.jpg',
-        name + '_' + w + '.webp',
-        w, h);
-}
-
 function lowerCase() {
-    dirToLower("/source/zdjecia")
+    dirToLower(cons.OFERTA_SOURCE_DIR)
 }
 
 function dirToLower(dir) {
@@ -90,7 +66,7 @@ function dirToLower(dir) {
 }
 
 async function addSizesToNames() {
-    await _addSizesToNames("/source/zdjecia")
+    await _addSizesToNames(cons.OFERTA_SOURCE_DIR)
 }
 
 async function _addSizesToNames(dir) {
@@ -110,7 +86,7 @@ async function _addSizesToNames(dir) {
                     const h = metadata.height;
                     let sizeOk = false;
                     let newEnd = "";
-                    if( w== 3024 && h==3024){
+                    if( w==h){
                         sizeOk = true;
                         newEnd = "_1x1.jpg";
                     }else if( w==4032 && h==2268){

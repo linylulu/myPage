@@ -3,72 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/multi-item-carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="/bootstrap/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="3rd/css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="3rd/css/slick.css">
+    <link rel="stylesheet" href="3rd/css/slick-theme.css">
+    <link href="css/styles.css" rel="stylesheet">
     <title>Home|Liny LuLu</title>
 </head>
 <body>
 <main class="container p-0" style="background-color:#c0c0c0;">
-    <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-interval="5000"
-         data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <!--template-start-->
-            <div class="carousel-item active">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k1_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k2_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k3_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k4_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k5_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k6_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k7_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k8_440.webp">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="col-md-6 col-xl-4">
-                    <img class="img-fluid" src="/img/karuzela/k9_440.webp">
-                </div>
-            </div>
-            <!--template-end-->
+    <div class="js-slick-carousel" >
+        <!--template-start-->
+        <div>
+            <img class="img-fluid" src="img/carousel/halter + wodze 5_440x440.webp">
         </div>
+        <div>
+            <img class="img-fluid" src="img/carousel/halter + wodze caribic_440x440.webp">
+        </div>
+        <div>
+            <img class="img-fluid" src="img/carousel/halter + wodze elana2_440x440.webp">
+        </div>
+        <div>
+            <img class="img-fluid" src="img/carousel/halter + wodze elana_440x440.webp">
+        </div>
+        <div>
+            <img class="img-fluid" src="img/carousel/halter 2_440x440.webp">
+        </div>
+        <!--template-end-->
     </div>
+
     <div class="ps-3 pe-3 pb-1 pt-5">
         <p class="fw-semibold fs-4">Wykonujemy na zamówienie sprzęt jeździecki z lin wysokiej jakości.<br/>
             Mamy szeroki wybór kolorów dostępnych od ręki oraz pod indywidualne zamówienia.<br/>
             W naszej ofercie mamy haltery, wodze, liny do pracy z ziemi, stringi do stickow oraz cordeo.</p>
     </div>
 </main>
+
+<script src="3rd/js/jquery.js"></script>
+<script src="3rd/js/bootstrap.js"></script>
+<script src="3rd/js/slick.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.js-slick-carousel').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false
+        });
+    });
+</script>
 </body>
-<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/js/karuzela.js"></script>
 </html>

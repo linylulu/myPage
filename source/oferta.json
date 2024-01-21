@@ -1,0 +1,202 @@
+[
+  {
+    "id": "halter",
+    "name": "halter zwykły",
+    "prices": [
+      {
+        "name" : "halter",
+        "price": 49
+      }
+    ],
+    "options": [
+      {
+        "name" : "pleciony nachrapnik",
+        "price" : 20,
+        "additional" : true
+      },
+      {
+        "name" : "kółeczka do wodzy",
+        "price" : 12,
+        "additional" : true
+      }
+    ],
+    "description": "Halter zwykły: wykonany z liny poliestrowej o średnicy 6mm, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "halter_elana",
+    "name": "halter zwykły (Elana/multicolor)",
+    "prices": [
+      {
+        "name" : "halter",
+        "price": 55
+      }
+    ],
+    "options": [
+      {
+        "name" : "pleciony nachrapnik",
+        "price" : 20,
+        "additional" : true
+      },
+      {
+        "name" : "kółeczka do wodzy",
+        "price" : 12,
+        "additional" : true
+      }
+    ],
+    "description": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "wodze_letkie",
+    "name": "wodze lekkie 2,8m",
+    "prices": [
+      {
+        "name" : "wodze",
+        "price": 85
+      }
+    ],
+    "options": [{
+      "name": "z karabińczykami ze stali nierdzewnej",
+      "price": 25,
+      "additional" : true
+    }
+      ],
+    "description": "Wodze lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. "
+  },
+  {
+    "id": "wodze_cienszkie",
+    "name": "wodze ciężkie 2,8m",
+    "prices": [
+      {
+        "name" : "wodze",
+        "price": 110
+      }
+    ],
+    "options": [{
+      "name": "z karabińczykami ze stali nierdzewnej",
+      "price": 25,
+      "additional" : true
+    }
+    ],
+    "description": "Wodze ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "wodze_west_letkie",
+    "name": "wodze west dzielone lekkie 2x2m",
+    "prices": [
+      {
+        "name" : "wodze",
+        "price": 110
+      }
+    ],
+    "options": [{
+      "name": "z karabińczykami ze stali nierdzewnej",
+      "price": 25,
+      "additional" : true
+    }],
+    "description": "Wodze west dzielone lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "wodze_west_cienszkie",
+    "name": "wodze west dzielone ciężkie 2x2m",
+    "prices": [
+      {
+        "name" : "wodze",
+        "price": 135
+      }
+    ],
+    "options": [{
+      "name": "z karabińczykami ze stali nierdzewnej",
+      "price": 25,
+      "additional" : true
+    }],
+    "description": "Wodze west dzielone ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 12 lub 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "lina_letka",
+    "name": "lina lekka",
+    "prices": [
+      {
+        "name": "3,6m",
+        "price": 90
+      },
+      {
+        "name": "4,5m",
+        "price": 100
+      },
+      {
+        "name": "6,7m",
+        "price": 120
+      }
+    ],
+    "options": [
+      {
+        "name": "karabińczyk mosiężny",
+        "price": 49,
+        "additional": true
+      }
+    ],
+    "description": "Lina lekka: Lina treningowa, wykonana z lekkiej liny polipropylenowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+  },
+  {
+    "id": "lina_cienszka",
+    "name": "lina ciężka",
+    "prices": [
+      {
+        "name": "3,6m",
+        "price": 120
+      },
+      {
+        "name": "4,5m",
+        "price": 130
+      },
+      {
+        "name": "6,7m",
+        "price": 160
+      }
+    ],
+    "options": [
+      {
+        "name": "karabińczyk mosiężny",
+        "price": 49,
+        "additional": true
+      }
+    ],
+    "description": "Lina ciężka: Lina treningowa, wykonana z ciężkiej liny poliestrowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+  },
+  {
+    "id": "lina_cienszka_elana",
+    "name": "lina ciężka (Elana/multicolor)",
+    "prices": [
+      {
+        "name": "3,6m",
+        "price": 145
+      },
+      {
+        "name": "4,5m",
+        "price": 155
+      },
+      {
+        "name": "6,7m",
+        "price": 185
+      }
+    ],
+    "options": [
+      {
+        "name": "karabińczyk mosiężny",
+        "price": 49,
+        "additional": true
+      }
+    ],
+    "description": "Lina ciężka elana/ multicolor: Lina treningowa, wykonana z ciężkiej liny poliestrowej typie elana (imitującej przędzę naturalną) lub wielokolorowej, o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+  },
+  {
+    "id": "cordeo",
+    "name": "cordeo",
+    "prices": [
+      {
+        "name" : "cordeo",
+        "price": 80
+      }
+    ], "description": "Cordeo: regulowane cordeo, wykonane z liny poliproplylenowej o średnicy 14mm. Doskonałe narzędzie, służące do jazdy bez ogłowia. Dzięki regulacji długości będzie pasować na każdego konia. Cordeo wykończone jest skórzanymi popperami. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  }
+]

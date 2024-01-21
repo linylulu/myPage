@@ -1,18 +1,23 @@
 const fs = require('fs');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const cons = require("./const");
 
 
-const sourceDir = "source/"
-const frameName = "_frame.html";
-const frameFileName = sourceDir+frameName;
+const frameFileName = cons.TEMPLATES_SRC_DIR + '/_frame.html';
 
-module.exports = {mergeToFrame};
+
+module.exports = {mergeToFrame,saveAndMerge};
+
+function saveAndMerge(fileName, content, makeActive = null) {
+    fs.writeFileSync(cons.TEMP_DIR + '/' + fileName, content);
+    mergeToFrame(fileName,makeActive);
+}
 
 function mergeToFrame(pageName,makeActive=null){
     const frame = loadHtml(frameFileName);
     const frameDoc = frame.window.document;
-    const page = loadHtml(sourceDir+pageName);
+    const page = loadHtml(cons.TEMP_DIR+'/'+pageName);
     const pageDoc = page.window.document;
 
     swapHead(frameDoc,pageDoc);
@@ -20,7 +25,7 @@ function mergeToFrame(pageName,makeActive=null){
     swapScripts(frameDoc,pageDoc);
     adjustNavBar(frameDoc,pageName,makeActive!=null? makeActive : pageName);
     adjustImages(frameDoc);
-    saveHtml(frame,pageName);
+    saveHtml(frame,cons.ROOT_DIR +'/' + pageName);
 }
 
 function adjustImages(frameDoc){

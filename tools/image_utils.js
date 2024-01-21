@@ -4,8 +4,8 @@ const sharp = require("sharp");
 module.exports = class ImageUtils {
     async readResizeSaveImg(oldName, newName, newW, newH) {
         const img = await this.read_jpg(oldName);
-        const newImage = this.resizeImg(img,newW,newH);
-        newImage.toFile(newName);
+        const newImage = await this.resizeImg(img,newW,newH);
+        await newImage.toFile(newName);
         console.log("WRITTEN " + newName)
     }
     async readRotateResizeSaveImg(oldName, newName, newW, newH) {

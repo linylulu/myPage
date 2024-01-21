@@ -1,31 +1,45 @@
 
+const ROOT_DIR = 'root';
+const IMG_DIR =  'img';
+const CAROUSEL_IMG_DIR = IMG_DIR + '/carousel'
+const OFERTA_IMG_DIR = IMG_DIR + '/oferta'
 
-const GALERY_SOURCE_DIR = "source/galery/";
-const GALERY_JSON_NAME = GALERY_SOURCE_DIR + "galery.json";
-const GALERY_TARGET_IMG_DIR = "img/galery";
 
-const MAIN_IMAGE_W = 400;
-const MAIN_IMAGE_H = 400;
+const ROOT_SRC_DIR = 'source/root';
+const TEMP_DIR = '.tmp';
+const OFERTA_SOURCE_DIR = '.oferta';
+const CAROUSEL_SRC_DIR = OFERTA_SOURCE_DIR + '/_karuzelka';
+const TEMPLATES_SRC_DIR = 'source';
 
-const GALERY_IMAGE_W = 800;
-const GALERY_IMAGE_H = 400;
+const OFERTA_JSON_NAME = "source/oferta.json";
+const OFERTA_TARGET_IMG_DIR = "img/oferta";
+
 
 const TEMPLATE_START = '<!--template-start-->';
 const TEMPLATE_END = '<!--template-end-->';
 
 
 module.exports = {
+    rooted,
+    ROOT_DIR,
+    IMG_DIR,
+    CAROUSEL_IMG_DIR,
+    OFERTA_IMG_DIR,
+
+    ROOT_SRC_DIR,
+    CAROUSEL_SRC_DIR,
+    TEMPLATES_SRC_DIR,
+    TEMP_DIR,
+
     TEMPLATE_START,
     TEMPLATE_END,
 
-    GALERY_SOURCE_DIR,
-    GALERY_JSON_NAME,
-    GALERY_TARGET_IMG_DIR,
+    OFERTA_SOURCE_DIR,
+    OFERTA_JSON_NAME,
+    OFERTA_TARGET_IMG_DIR
 
-    MAIN_IMAGE_W,
-    MAIN_IMAGE_H,
-
-    GALERY_IMAGE_W,
-    GALERY_IMAGE_H
 
 };
+function rooted(path){
+    return ROOT_DIR + '/' + path;
+}
