@@ -8,7 +8,7 @@ const index = require("./index");
 
 make(process.argv);
 
-function make(argv){
+async function make(argv){
     const command = argv[2];
     const params = argv.slice(3,argv.length);
 
@@ -27,7 +27,7 @@ function make(argv){
     }
 
     if( command == "index"){
-//        index.makeCarouselGfx();
+        await index.makeCarouselGfx();
         index.makeIndex(params);
         return;
     }
@@ -38,7 +38,7 @@ function make(argv){
     }
 
     if( command == "oferta"){
-//        oferta.makeOfertaGfx();
+        //oferta.makeOfertaGfx();
         oferta.makeOfertaHtml();
         return;
     }
