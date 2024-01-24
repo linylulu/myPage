@@ -8,12 +8,6 @@ use PHPMailer\PHPMailer\Exception;
 function sendMail($email, $name, $subject, $content)
 {
 //config
-    $smtpHost = 'h29.seohost.pl';
-    $smtpPort = 465;
-    $sender = 'formsender@linylulu.com';
-    $smtpUser = 'abc@linylulu.com';
-    $smtpPassword = '12345678';
-    $recipient = 'kannisko@gmail.com';
 
 //    echo 'email ', $email, '<br/>';
 //    echo 'name ', $name, '<br/>';

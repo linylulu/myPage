@@ -3,7 +3,6 @@ import * as  fs from 'fs'
 import * as utils from './utils.js';
 import * as imageUtils from './image_utils.js';
 import * as mergeFrame from './merge_frame.js';
-import * as JSDOM from 'jsdom';
 
 
 export {makeCennikHtml, makeOfertaGfx, makeOfertaHtml, makeOfertaItems, makeOfertaSrcDir, makeKontakt};

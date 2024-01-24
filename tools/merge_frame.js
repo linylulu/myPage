@@ -1,7 +1,8 @@
 import * as cons from './const.js';
 import * as  fs from 'fs'
 import * as jsdom from 'jsdom'
-const { JSDOM } = jsdom;
+
+const {JSDOM} = jsdom;
 
 
 
