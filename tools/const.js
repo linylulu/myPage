@@ -1,5 +1,4 @@
-
-const ROOT_DIR = 'root';
+const ROOT_DIR = 'public_html';
 const IMG_DIR =  'img';
 const CAROUSEL_IMG_DIR = IMG_DIR + '/carousel'
 const OFERTA_IMG_DIR = IMG_DIR + '/oferta'
@@ -19,7 +18,7 @@ const TEMPLATE_START = '<!--template-start-->';
 const TEMPLATE_END = '<!--template-end-->';
 
 
-module.exports = {
+export {
     rooted,
     ROOT_DIR,
     IMG_DIR,

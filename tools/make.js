@@ -1,10 +1,9 @@
-const cons = require("./const");
-const Utils = require('./utils')
-const utils = new Utils();
+import * as cons from './const.js';
+import * as utils from './utils.js';
 
-const oferta = require("./oferta");
-const mergeFrame = require("./merge_frame");
-const index = require("./index");
+import * as oferta from './oferta.js';
+import * as mergeFrame from './merge_frame.js';
+import * as index from './index.js';
 
 make(process.argv);
 
@@ -28,7 +27,7 @@ async function make(argv){
 
     if( command == "index"){
         await index.makeCarouselGfx();
-        index.makeIndex(params);
+        await index.makeIndex(params);
         return;
     }
 
@@ -38,7 +37,7 @@ async function make(argv){
     }
 
     if( command == "oferta"){
-        //oferta.makeOfertaGfx();
+        await oferta.makeOfertaGfx();
         oferta.makeOfertaHtml();
         return;
     }

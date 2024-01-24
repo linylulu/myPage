@@ -1,13 +1,14 @@
-const fs = require('fs');
+import * as  fs from 'fs'
 
-module.exports = class Utils {
-    readFileContent(fileName) {
+
+export function readFileContent(fileName) {
         if (!fs.existsSync(fileName)) {
             return null;
         }
         return fs.readFileSync(fileName, 'utf8');
     }
-    makeDir(dir) {
+
+export function makeDir(dir) {
         if (!fs.existsSync(dir)) {
             console.log("making: " + dir);
             fs.mkdirSync(dir,{ recursive: true });
@@ -16,12 +17,12 @@ module.exports = class Utils {
         }
     }
 
-    copyDir(src, dest) {
+export function copyDir(src, dest) {
         this.makeDir(dest);
         fs.cpSync(src,dest,{ recursive: true });
     };
 
-    readImagesList(dir,postfix) {
+export function readImagesList(dir, postfix) {
         let filesList = [];
         const files = fs.readdirSync(dir, {withFileTypes: true});
         let i = 0;
@@ -39,4 +40,4 @@ module.exports = class Utils {
         console.log("filesList",filesList);
         return filesList;
     }
-}
+

@@ -1,14 +1,14 @@
-//const Jimp = require("jimp");
-const sharp = require("sharp");
+import sharp from 'sharp';
 
-module.exports = class ImageUtils {
-    async readResizeSaveImg(oldName, newName, newW, newH) {
+
+export async function readResizeSaveImg(oldName, newName, newW, newH) {
         const img = await this.read_jpg(oldName);
         const newImage = await this.resizeImg(img,newW,newH);
         await newImage.toFile(newName);
         console.log("WRITTEN " + newName)
     }
-    async readRotateResizeSaveImg(oldName, newName, newW, newH) {
+
+export async function readRotateResizeSaveImg(oldName, newName, newW, newH) {
         let img = await this.read_jpg(oldName);
         const metadata = await img.metadata();
         console.log("size " + metadata.width + " " + metadata.height);
@@ -21,41 +21,10 @@ module.exports = class ImageUtils {
         console.log("WRITTEN " + newName)
     }
 
-     async  read_jpg(name) {
-        return sharp(name);
-        // let x = null;
-        // await Jimp.read(name)
-        //     .then(result => {
-        //         console.log("wczytano "+name);
-        //         x = result;
-        //     })
-        //     .catch(err => {
-        //         console.log('Oh noes!! Error: ', err.code)
-        //     });
-        //
-        // return x;
+export async function read_jpg(name) {
+    return new sharp(name);
     }
 
-    resizeImg(img, newWidth, newHeight) {
+export async function resizeImg(img, newWidth, newHeight) {
         return img.resize(newWidth,newHeight);
-        // const width = img.getWidth();
-        // const height = img.getHeight();
-        // const scaleX = newWidth / width;
-        // const scaleY = newHeight / height;
-        // let nW = 0;
-        // let nH = 0;
-        // if (scaleX > scaleY) {
-        //     nW = newWidth;
-        //     nH = height * scaleX;
-        // } else {
-        //     nH = newHeight;
-        //     nW = width * scaleY;
-        // }
-        //
-        // img.resize(nW, nH);
-        // const x = (nW - newWidth) / 2;
-        // const y = (nH - newHeight) / 2;
-        // img.crop(x, y, newWidth, newHeight);
-        // return img;
-    }
 }

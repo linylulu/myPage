@@ -1,12 +1,10 @@
-const ImageUtils = require('./image_utils.js')
-const imageUtils = new ImageUtils();
-const cons = require("./const");
-const fs = require("fs");
-const mergeFrame = require("./merge_frame");
-const Utils = require('./utils')
-const utils = new Utils();
+import * as cons from './const.js';
+import * as  fs from 'fs'
+import * as utils from './utils.js';
+import * as imageUtils from './image_utils.js';
+import * as mergeFrame from './merge_frame.js';
 
-module.exports = {makeIndex, makeCarouselGfx, lowerCase, addSizesToNames};
+export {makeIndex, makeCarouselGfx, lowerCase, addSizesToNames};
 
 
 
@@ -30,7 +28,6 @@ function makeIndex() {
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
     images.forEach(img=>{
         prefix += makeCarouselItem(cons.CAROUSEL_IMG_DIR+"/"+img.name);
-        active = "";
     });
     prefix += postfix;
     mergeFrame.saveAndMerge('index.html',prefix)

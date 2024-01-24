@@ -1,16 +1,12 @@
-const fs = require('fs');
-const jsdom = require("jsdom");
-const {JSDOM} = jsdom;
-const ImageUtils = require('./image_utils.js')
-const imageUtils = new ImageUtils();
-const cons = require("./const");
-const Utils = require('./utils')
-const utils = new Utils();
-const mergeFrame = require("./merge_frame");
-const {mergeToFrame} = require("./merge_frame");
+import * as cons from './const.js';
+import * as  fs from 'fs'
+import * as utils from './utils.js';
+import * as imageUtils from './image_utils.js';
+import * as mergeFrame from './merge_frame.js';
+import * as JSDOM from 'jsdom';
 
 
-module.exports = {makeCennikHtml, makeOfertaGfx, makeOfertaHtml, makeOfertaItems, makeOfertaSrcDir,makeKontakt};
+export {makeCennikHtml, makeOfertaGfx, makeOfertaHtml, makeOfertaItems, makeOfertaSrcDir, makeKontakt};
 
 
 function makeCennikHtml() {

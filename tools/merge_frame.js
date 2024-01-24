@@ -1,20 +1,18 @@
-const fs = require('fs');
-const jsdom = require("jsdom");
+import * as cons from './const.js';
+import * as  fs from 'fs'
+import * as jsdom from 'jsdom'
 const { JSDOM } = jsdom;
-const cons = require("./const");
+
 
 
 const frameFileName = cons.TEMPLATES_SRC_DIR + '/_frame.html';
 
-
-module.exports = {mergeToFrame,saveAndMerge};
-
-function saveAndMerge(fileName, content, makeActive = null) {
+export function saveAndMerge(fileName, content, makeActive = null) {
     fs.writeFileSync(cons.TEMP_DIR + '/' + fileName, content);
     mergeToFrame(fileName,makeActive);
 }
 
-function mergeToFrame(pageName,makeActive=null){
+export function mergeToFrame(pageName, makeActive = null) {
     const frame = loadHtml(frameFileName);
     const frameDoc = frame.window.document;
     const page = loadHtml(cons.TEMP_DIR+'/'+pageName);
@@ -30,6 +28,7 @@ function mergeToFrame(pageName,makeActive=null){
 
 function adjustImages(frameDoc){
     const images = frameDoc.getElementsByTagName("img");
+    let i = 0;
     for( i=0; i<images.length; i++) {
         shortenAttribute(images[i], "src");
     }
@@ -39,6 +38,7 @@ function adjustNavBar(frameDoc,thisPage,makeActive){
     console.log(thisPage,makeActive);
     const navBar = frameDoc.getElementById("navBarContainer");
     const as = navBar.getElementsByTagName("a");
+    let i = 0;
     for( i=0; i<as.length; i++){
         const aa = as[i];
         let href = shortenAttribute(aa,"href");
@@ -55,6 +55,7 @@ function swapHead(targetDoc,sourceDoc) {
     const sourceRoot = sourceDoc.getElementsByTagName("html")[0];
     const sourceHead = sourceRoot.getElementsByTagName("head")[0];
     const links = sourceHead.getElementsByTagName("link");
+    let i = 0;
     for( i=0; i<links.length; i++ ){
         shortenAttribute(links[i],"href");
     }
@@ -69,7 +70,7 @@ function swapScripts(targetDoc,sourceDoc){
 
     const targetHtml = targetDoc.getElementsByTagName("body")[0];
     const targetScripts = targetHtml.getElementsByTagName("script");
-
+    let i = 0;
     for( i=targetScripts.length-1; i>=0;i--){
         targetHtml.removeChild(targetScripts[i]);
     }
