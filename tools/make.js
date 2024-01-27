@@ -5,7 +5,8 @@ import * as oferta from './oferta.js';
 import * as galeria from './galeria.js';
 import * as mergeFrame from './merge_frame.js';
 import * as index from './index.js';
-import {dirToLower} from "./index.js";
+import * as info from './info.js';
+
 
 make(process.argv);
 
@@ -45,6 +46,22 @@ async function make(argv){
         galeria.makeHtml();
         return;
     }
+    if (command == 'html') {
+        await makeIndex();
+        await oferta.makeCennikHtml();
+        oferta.makeOfertaHtml();
+        oferta.makeOfertaItems();
+        oferta.makeKontakt();
+        galeria.makeHtml();
+        //info.makeInfo();
+        return;
+    }
+
+    if (command == "faq") {
+        info.makeFaqHtml();
+        return;
+    }
+
 
     if( command == "mkdirs"){
         mkdirs();

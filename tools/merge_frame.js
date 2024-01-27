@@ -8,12 +8,12 @@ const {JSDOM} = jsdom;
 
 const frameFileName = cons.TEMPLATES_SRC_DIR + '/_frame.html';
 
-export function saveAndMerge(fileName, content, makeActive = null) {
+export function saveAndMerge(fileName, content, breadCrumbs, makeActive = null) {
     fs.writeFileSync(cons.TEMP_DIR + '/' + fileName, content);
-    mergeToFrame(fileName,makeActive);
+    mergeToFrame(fileName, breadCrumbs, makeActive);
 }
 
-export function mergeToFrame(pageName, makeActive = null) {
+export function mergeToFrame(pageName, breadCrumbs, makeActive = null) {
     const frame = loadHtml(frameFileName);
     const frameDoc = frame.window.document;
     const page = loadHtml(cons.TEMP_DIR+'/'+pageName);
@@ -24,7 +24,30 @@ export function mergeToFrame(pageName, makeActive = null) {
     swapScripts(frameDoc,pageDoc);
     adjustNavBar(frameDoc,pageName,makeActive!=null? makeActive : pageName);
     adjustImages(frameDoc);
-    saveHtml(frame,cons.ROOT_DIR +'/' + pageName);
+    const str = frame.serialize();
+    const html = str.replace('{$breadcrumb}', makeBreadCrumbs(breadCrumbs))
+    fs.writeFileSync(cons.ROOT_DIR + '/' + pageName, html);
+    // saveHtml(frame,cons.ROOT_DIR +'/' + pageName);
+}
+
+const TEMPLATE_LINK = '<li class="breadcrumb-item"><a href={$html}>{$name}</a></li>';
+const TEMPLATE_LAST = '<li class="breadcrumb-item active" aria-current="page">{$name}</li>';
+
+function makeBreadCrumbs(breadCrumbs) {
+    let str = '';
+    let i = 0;
+    const cnt = breadCrumbs.length;
+    for (i = 0; i < cnt; i++) {
+        const crumb = breadCrumbs[i];
+        if (i < cnt - 1) {
+            let tmp = TEMPLATE_LINK.replace('{$name}', crumb.name);
+            tmp = tmp.replace('{$html}', crumb.html);
+            str += tmp;
+        } else {
+            str += TEMPLATE_LAST.replace('{$name}', crumb.name);
+        }
+    }
+    return str;
 }
 
 function adjustImages(frameDoc){

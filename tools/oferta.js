@@ -47,7 +47,18 @@ function makeCennikHtml() {
         prefix += tmp;
     });
     prefix += postfix;
-    mergeFrame.saveAndMerge('cennik.html',prefix)
+    mergeFrame.saveAndMerge('cennik.html', prefix,
+        [
+            {
+                'name': 'Strona główna',
+                'html': 'index.html'
+            },
+            {
+                'name': 'Cennik',
+                'html': 'cennik.html'
+            }
+        ]);
+
 }
 /////////////////////////////////////////////////////
 
@@ -101,7 +112,17 @@ function makeOfertaHtml() {
 
     });
     prefix += postfix;
-    mergeFrame.saveAndMerge("oferta.html",prefix)
+    mergeFrame.saveAndMerge("oferta.html", prefix,
+        [
+            {
+                'name': 'Strona główna',
+                'html': 'index.html'
+            },
+            {
+                'name': 'Oferta',
+                'html': 'oferta.html'
+            }
+        ]);
 }
 
 function makeOfertaItems() {
@@ -154,7 +175,22 @@ function makeOfertaItemHtml(item) {
     desc = desc.replace('{$carousel}',galeryItemCarousel(item));
     prefix += desc;
     prefix += postfix;
-    mergeFrame.saveAndMerge(pageName,prefix,"oferta.html");
+    mergeFrame.saveAndMerge(pageName, prefix,
+        [
+            {
+                'name': 'Strona główna',
+                'html': 'index.html'
+            },
+            {
+                'name': 'Oferta',
+                'html': 'oferta.html'
+            },
+            {
+                'name': item.name,
+                'html': pageName
+            }
+        ],
+        "oferta.html");
 }
 
 
@@ -219,7 +255,18 @@ function readSourceDirectory(ofertaObj, sourceGaleryDir) {
 function makeKontakt(){
     const name = 'kontakt.html';
     fs.copyFileSync(cons.TEMPLATES_SRC_DIR + '/_kontakt-template.html',cons.TEMP_DIR + '/' + name);
-    mergeFrame.mergeToFrame(name);
+    mergeFrame.mergeToFrame(name,
+        [
+            {
+                'name': 'Strona główna',
+                'html': 'index.html'
+            },
+            {
+                'name': 'Kontakt',
+                'html': 'kontakt.html'
+            }
+        ]);
+
 
 }
 

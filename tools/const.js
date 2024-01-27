@@ -15,6 +15,7 @@ const GALERY_SRC_DIR = IMAGES_SRC_DIR + '/galeria';
 const TEMPLATES_SRC_DIR = 'source';
 
 const OFERTA_JSON_NAME = "source/oferta.json";
+const FAQ_JSON_NAME = "source/faq.json";
 
 const TEMPLATE_START = '<!--template-start-->';
 const TEMPLATE_END = '<!--template-end-->';
@@ -40,7 +41,8 @@ export {
     TEMPLATE_START,
     TEMPLATE_END,
 
-    OFERTA_JSON_NAME
+    OFERTA_JSON_NAME,
+    FAQ_JSON_NAME
 
 
 

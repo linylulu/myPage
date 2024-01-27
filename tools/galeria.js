@@ -97,5 +97,16 @@ export async function makeHtml() {
     });
     prefix += postfix;
 
-    mergeFrame.saveAndMerge('galeria.html', prefix)
+    mergeFrame.saveAndMerge('galeria.html', prefix,
+        [
+            {
+                'name': 'Strona główna',
+                'html': 'index.html'
+            },
+            {
+                'name': 'Galeria',
+                'html': 'galeria.html'
+            }
+        ]);
+
 }

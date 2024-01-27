@@ -65,6 +65,7 @@ $navbar-dark-hover-color: white;
 //  fill: currentcolor;
 //}
 
+
 .nav-pills {
   li:hover {
     background-color: #909090;
@@ -142,4 +143,10 @@ header {
   row-gap: 20px;
 }
 
+.link-black {
+  color: black;
 
+  &:hover {
+    color: #303030;
+  }
+}

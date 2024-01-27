@@ -32,7 +32,7 @@ function makeIndex() {
         prefix += makeCarouselItem(cons.CAROUSEL_IMG_DIR+"/"+img.name);
     });
     prefix += postfix;
-    mergeFrame.saveAndMerge('index.html',prefix)
+    mergeFrame.saveAndMerge('index.html', prefix, [{'name': 'Strona główna', 'html': 'index.html'}])
 }
 
 const CAROUSEL_ITEM_TEMPLATE =

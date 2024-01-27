@@ -43,11 +43,21 @@
             <a class="nav-link" href="/galeria.html">Galeria</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/informacje.html">Informacje</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/kontakt.html">Kontakt</a>
         </li>
       </ul>
     </div>
   </div>
+</nav>
+<nav aria-label="breadcrumb">
+  <ol class="container breadcrumb mt-1 mb-1 p-2">
+    {$breadcrumb}
+    <!--    <li class="breadcrumb-item"><a href="oferta.html">Oferta</a></li>-->
+    <!--    <li class="breadcrumb-item active" aria-current="page">{$name}</li>-->
+  </ol>
 </nav>
 <main class="container p-0 " style="background-color:#c0c0c0;">
   <div class="d-block">
@@ -57,16 +67,25 @@
   </div>
 </main>
 <footer class="container" style="background-color:#b0b0b0;">
-  <div class="ps-4 pe-0 pb-1 pt-1">
-    <p class="fw-bold fs-2">Kontakt</p>
-    <div class="ps-1">
+  <div class="row p-1">
+    <div class="order-lg-2 col-lg-6">
+      <p><a class="fw-bold fs-2 text-decoration-none link-black" href="informacje.html">Informacje</a></p>
+      <ul>
+        <li><a class="text-decoration-none link-black" href="pomiar.html">Pomiar</a></li>
+        <li><a class="text-decoration-none link-black" href="faq.html">Faq</a></li>
+        <li><a class="text-decoration-none link-black" href="regulamin.html">Regulamin</a></li>
+      </ul>
+    </div>
+    <div class="order-lg-1 col-lg-6">
+      <p class="fw-bold fs-2">Kontakt</p>
       <dl class="row">
-        <dt class="col-md-2"><i class="bi-mailbox"></i> Email:</dt>
-        <dd class="col-md-10" c><a href="mailto:info@linylulu.com">info@linylulu.com</a></dd>
-        <dt class="col-md-2"><i class="bi-telephone"></i> Telefon:</dt>
-        <dd class="col-md-10"><a href="tel:+48793163983">+48 793 163 983</a></dd>
-        <dt class="col-md-2"><i class="bi-facebook"></i> Facebook:</dt>
-        <dd class="col-md-10"><a href="https://fb.com/haltery.wodze.liny">https://fb.com/haltery.wodze.liny</a></dd>
+        <dt class="col-sm-4"><i class="bi-mailbox"></i> Email:</dt>
+        <dd class="col-sm-8" c><a href="mailto:info@linylulu.com">info@linylulu.com</a></dd>
+        <dt class="col-sm-4"><i class="bi-telephone"></i> Telefon:</dt>
+        <dd class="col-sm-8"><a href="tel:+48793163983">+48 793 163 983</a></dd>
+        <dt class="col-sm-4"><i class="bi-facebook"></i> Facebook:</dt>
+        <dd class="col-sm-8"><a href="https://fb.com/haltery.wodze.liny">https://fb.com/haltery.wodze.liny</a>
+        </dd>
       </dl>
     </div>
   </div>
