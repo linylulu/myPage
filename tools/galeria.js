@@ -24,21 +24,44 @@ function makeKontakt() {
             if (s.name.endsWith(".jpg")) {
                 if (!(s.name.endsWith("_1x1.jpg") || s.name.endsWith("_16x9.jpg"))) {
  */
-async function proceedOneImage(directory, name) {
+
+async function makeThumb(directory, name) {
     const oldName = directory + "/" + name;
     let img = await imageUtils.read_jpg(oldName);
     const metadata = await img.metadata();
     const w = metadata.width;
     const h = metadata.height;
     const newW = Math.round((w * GALERY_THUMB_H) / h);
-
-    await img.toFile(cons.rooted(cons.GALERY_IMG_DIR) + '/' + name.replace('.jpg', '.webp'));
-
     const newName = name.replace(".jpg", THUMB_POSTIX);
 
     const newImage = await img.resize(newW, GALERY_THUMB_H);
     await newImage.toFile(cons.rooted(cons.GALERY_IMG_DIR) + '/' + newName);
     console.log("WRITTEN " + newName)
+
+}
+
+async function makeBig(directory, name) {
+    const oldName = directory + "/" + name;
+    let img = await imageUtils.read_jpg(oldName);
+    const metadata = await img.metadata();
+    const w = metadata.width;
+    const h = metadata.height;
+
+    let newW = w;
+    let newH = h;
+    if (h > 800) {
+        newW = Math.round((w * 800) / h);
+        newH = 800;
+    }
+    const newImage = await img.resize(newW, newH);
+    const newName = cons.rooted(cons.GALERY_IMG_DIR) + '/' + name.replace('.jpg', '.webp')
+    await newImage.toFile(newName);
+    console.log("WRITTEN " + newName)
+}
+
+async function proceedOneImage(directory, name) {
+    await makeThumb(directory, name);
+    await makeBig(directory, name);
 }
 
 export async function makeGfx() {
