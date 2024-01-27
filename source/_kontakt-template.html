@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="img/logo-baza-tylko-konik.svg">
     <link rel="stylesheet" href="3rd/css/bootstrap-icons.min.css">
     <link href="css/styles.css" rel="stylesheet">
     <title>Kontakt|Liny LuLu</title>
@@ -39,7 +40,7 @@
                     <a class="nav-link" href="cennik.html">Cennik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="galeria.php">Galeria</a>
+                    <a class="nav-link" href="galeria.html">Galeria</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#" aria-current="page">Kontakt</a>
@@ -49,6 +50,64 @@
     </div>
 </nav>
 <main class="container p-0" style="background-color:#c0c0c0;">
+    <!-- Modal -->
+    <div class="modal fade" id="sendingMail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-dialog-centered">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Wysyłanie wiadomości:</h1>
+                    <!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <!--                <div class="modal-footer">-->
+                <!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                <!--                    <button type="button" class="btn btn-primary">Understood</button>-->
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="success" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5"> Sukces:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Dziękujemy za wysłanie wiadomości.</p>
+                    <p>Odpowiemy w możliwie najbiższym terminie.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="error" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5"> Błąd:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Niestety wystąpił błąd wysyłki email.</p>
+                    <p>Prosimy spóbować później, lub skorzystać z innych form kontaktu.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-7">
             <div class="m-1 m-sm-5">
@@ -98,45 +157,73 @@
             </div>
         </div>
         <div class="col-lg-5">
-            <div class="contact-right">
-                <ul>
-                    <li>
-                        <div class="contact-icon"><i class="fa fa-phone" aria-hidden="true"></i>
-                            <h6>Contact Us</h6></div>
-                        <div class="media-body">
-                            <p>+91 123 - 456 - 7890</p>
-                            <p>+86 163 - 451 - 7894</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="contact-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <h6>Address</h6></div>
-                        <div class="media-body">
-                            <p>ABC Complex,Near xyz, New York</p>
-                            <p>USA 123456</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="contact-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            <h6>Address</h6></div>
-                        <div class="media-body">
-                            <p>Support@Shopcart.com</p>
-                            <p>info@shopcart.com</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="contact-icon"><i class="fa fa-fax" aria-hidden="true"></i>
-                            <h6>Fax</h6></div>
-                        <div class="media-body">
-                            <p>Support@Shopcart.com</p>
-                            <p>info@shopcart.com</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="m-5 mt-1 m-sm-1 pt-1 pt-sm-5">
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-mailbox"></i></div>
+                    <div class="col-11">Email:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11"><a href="mailto:info@linylulu.com">info@linylulu.com</a></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-telephone"></i></div>
+                    <div class="col-11">Telefon:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11"><a href="tel:+48793163983">+48 793 163 983</a></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-facebook"></i></div>
+                    <div class="col-11">Facebook:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11"><a
+                            href="https://fb.com/haltery.wodze.liny">https://fb.com/haltery.wodze.liny</a></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-instagram"></i></div>
+                    <div class="col-11">Instagram:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11"><a href="https://www.instagram.com/liny.lu.lu">https://www.instagram.com/liny.lu.lu</a>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-tiktok"></i></div>
+                    <div class="col-11">Tiktok:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11"><a
+                            href="https://www.tiktok.com/@liny.lu.lu">https://www.tiktok.com/@liny.lu.lu</a></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-cash-coin"></i></div>
+                    <div class="col-11">NIP:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11">958 149 01 91</div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-1"><i class="bi-bank"></i></div>
+                    <div class="col-11">Numer konta:</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-11">56 1240 1242 1111 0010 4807 9337</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
     </div>
 </main>
 <footer class="container" style="background-color:#b0b0b0;">
@@ -156,33 +243,49 @@
     </div>
 </footer>
 
-
+<script src="3rd/js/jquery.js"></script>
 <script src="3rd/js/bootstrap.js"></script>
+
+</script>
 <script type="text/javascript">
-    (function () {
+    const formId = 'contactUsForm';
+    const myform = document.getElementById(formId);
+    myform.addEventListener("submit", submitForm);
+
+    const success = document.getElementById('success');
+    success.addEventListener('hidden.bs.modal', function (event) {
+        console.log('bulby redirect');
+        location.href = 'index.html';
+    });
+
+    function checkForm() {
         'use strict'
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.querySelectorAll('.needs-validation')
 
         // Loop over them and prevent submission
+        let result = true;
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    result = false;
+                }
+                form.classList.add('was-validated')
+            });
+        return result;
+    }
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-</script>
-<script type="text/javascript">
-    const formId = 'contactUsForm';
 
     function submitForm(e) {
         e.preventDefault();
+        const check = checkForm();
+        if (!check) {
+            return;
+        }
+        // const myModal = new bootstrap.Modal(document.getElementById('sendingMail'), {});
+        // myModal.show();
 
         const myform = document.getElementById(formId);
         const formData = new FormData(myform);
@@ -192,25 +295,18 @@
             body: formData,
         })
             .then(response => {
+                console.log('response:', response.ok);
+                // myModal.hide();
+                console.log('after hide');
+                let id = 'success'
                 if (!response.ok) {
-                    throw new Error('network returns error');
+                    id = 'error';
                 }
-                return response.json();
-            })
-            .then((resp) => {
-                // let respdiv = document.createElement("pre");
-                // respdiv.innerHTML = JSON.stringify(resp, null, 2);
-                // myform.replaceWith(respdiv);
-                console.log("resp from server ", resp);
-            })
-            .catch((error) => {
-                // Handle error
-                console.log("error ", error);
+                const modal = new bootstrap.Modal(document.getElementById(id), {});
+                modal.show();
             });
     }
 
-    const myform = document.getElementById(formId);
-    myform.addEventListener("submit", submitForm);
 </script>
 </body>
 </html>

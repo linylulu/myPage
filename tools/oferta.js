@@ -51,22 +51,27 @@ function makeCennikHtml() {
 }
 /////////////////////////////////////////////////////
 
-function makeOfertaGfx() {
+async function makeOfertaGfx() {
     const ofertaObj = readJson(false);
-    ofertaObj.forEach(item => {
-        convertOfertaImages(item.id);
-    });
+    let i = 0;
+    for (i = 0; i < ofertaObj.length; i++) {
+        const item = ofertaObj[i];
+        await convertOfertaImages(item.id);
+    }
 }
 
-function convertOfertaImages(subDir) {
-    const sourceDir = cons.OFERTA_SOURCE_DIR + '/' +subDir;
+async function convertOfertaImages(subDir) {
+    const sourceDir = cons.OFERTA_SRC_DIR + '/' + subDir;
     const targetDir = cons.rooted(cons.OFERTA_IMG_DIR) + '/' + subDir;
     const files = fs.readdirSync(sourceDir);
     utils.makeDir(targetDir);
-    files.filter(s => s.endsWith('_1x1.jpg')).forEach(s => {
+    const filtered = files.filter(s => s.endsWith('_1x1.jpg'));
+    let i = 0;
+    for (i = 0; i < filtered.length; i++) {
+        const s = filtered[i];
         const newName = targetDir + '/'+ s.replace('_1x1.jpg', '_1024x1024.webp')
-        imageUtils.readResizeSaveImg(sourceDir + '/' + s, newName, 1024, 1024);
-    });
+        await imageUtils.readResizeSaveImg(sourceDir + '/' + s, newName, 1024, 1024);
+    }
 }
 
 const CARD_TEMPLATE =
@@ -99,25 +104,9 @@ function makeOfertaHtml() {
     mergeFrame.saveAndMerge("oferta.html",prefix)
 }
 
-function makeOfertaItems(args) {
+function makeOfertaItems() {
     const ofertaObj = readJson();
-    if (args.length < 1) {
-        ofertaObj.forEach(item => makeOneOfertaItem(item, []));
-        return;
-    }
-    if (args[0] == "all") {
-        args = args.slice(1, args.length);
-        ofertaObj.forEach(item => makeOneOfertaItem(item, args));
-        return;
-    }
-    const itemId = args[0];
-    const item = ofertaObj.find(i => i.id == itemId);
-    if (item == null) {
-        console.log("invalid item id:" + itemId);
-        return;
-    }
-    args = args.slice(1, args.length);
-    makeOneOfertaItem(item, args);
+    ofertaObj.forEach(item => makeOneOfertaItem(item, []));
 }
 
 function makeOneOfertaItem(item, args) {
@@ -170,7 +159,7 @@ function makeOfertaItemHtml(item) {
 
 
 function galeryItemCarousel(item) {
-    const imgDir = cons.OFERTA_TARGET_IMG_DIR + "/" + item.id + '/';
+    const imgDir = cons.OFERTA_IMG_DIR + "/" + item.id + '/';
     const makeCarousel = item.images.length > 1;
     let result = '<div class="product-slick">\n';
     let nr = 0;
@@ -190,33 +179,6 @@ function galeryItemCarousel(item) {
     return result;
 }
 
-
-// const GAL_IT_CAR_IT =
-//     '      <div class="carousel-item {$active}">\n' +
-//     '        <img src="{$img_dir}{$img_no}" class="d-block w-100" alt="opis">\n' +
-//     '        <div class="carousel-caption d-none d-md-block">\n' +
-//     '{$image_desc}\n' +
-//     '        </div>\n' +
-//     '      </div>\n';
-//
-// function carouselInner(item) {
-//     let result = '<div class="carousel-inner">\n';
-//     const imgDir = cons.OFERTA_TARGET_IMG_DIR + "/" + item.id + '/';
-//
-//     for (i = 0; i < item.images.length; i++) {
-//         let tmp = GAL_IT_CAR_IT.replace('{$active}', i == 0 ? 'active' : '');
-//         tmp = tmp.replace('{$img_dir}', imgDir);
-//         tmp = tmp.replace('{$img_no}', item.images[i].name);
-//         let d = item.images[i].description;
-//         if (d == null) {
-//             d = '';
-//         }
-//         tmp = tmp.replace('{$image_desc}', d);
-//         result += tmp;
-//     }
-//     result += '</div>\n';
-//     return result;
-// }
 
 
 function makeOfertaSrcDir() {

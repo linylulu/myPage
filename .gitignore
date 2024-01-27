@@ -2,5 +2,6 @@ node_modules/*
 package-lock.json
 .idea/sonarlint/*
 .oferta/*
-.tmp/*
+tmp/*
 root/*
+.config/*

@@ -2,37 +2,67 @@ import * as cons from './const.js';
 import * as utils from './utils.js';
 
 import * as oferta from './oferta.js';
+import * as galeria from './galeria.js';
 import * as mergeFrame from './merge_frame.js';
 import * as index from './index.js';
+import {dirToLower} from "./index.js";
 
 make(process.argv);
 
+function mkdirs() {
+    utils.makeDir(cons.ROOT_DIR);
+    utils.makeDir(cons.TEMP_DIR);
+    utils.copyDir(cons.ROOT_SRC_DIR, cons.ROOT_DIR);
+}
+
+async function prep_gfx() {
+    await index.dirToLower(cons.IMAGES_SRC_DIR);
+    await index.addSizesToNames(cons.CAROUSEL_SRC_DIR);
+    await index.addSizesToNames(cons.OFERTA_SRC_DIR);
+}
+
+async function makeIndex() {
+    await index.makeCarouselGfx();
+    await index.makeIndex();
+
+}
+
+
 async function make(argv){
     const command = argv[2];
-    const params = argv.slice(3,argv.length);
+//    const params = argv.slice(3,argv.length);
 
+    if (command == 'all') {
+        mkdirs();
+        await prep_gfx();
+        await makeIndex();
+        await oferta.makeCennikHtml();
+        await oferta.makeOfertaGfx();
+        oferta.makeOfertaHtml();
+        oferta.makeOfertaItems();
+        oferta.makeKontakt();
+        await galeria.makeGfx();
+        galeria.makeHtml();
+        return;
+    }
 
     if( command == "mkdirs"){
-        utils.makeDir(cons.ROOT_DIR);
-        utils.makeDir(cons.TEMP_DIR);
-        utils.copyDir(cons.ROOT_SRC_DIR,cons.ROOT_DIR);
+        mkdirs();
         return;
     }
 
     if( command == "prep_gfx"){
-        index.lowerCase();
-        index.addSizesToNames();
+        await prep_gfx();
         return;
     }
 
     if( command == "index"){
-        await index.makeCarouselGfx();
-        await index.makeIndex(params);
+        await makeIndex();
         return;
     }
 
     if( command === "cennik"){
-        oferta.makeCennikHtml();
+        await oferta.makeCennikHtml();
         return;
     }
 
@@ -43,7 +73,7 @@ async function make(argv){
     }
 
     if( command == "ofitem"){
-        oferta.makeOfertaItems(params);
+        oferta.makeOfertaItems();
         return;
     }
 
@@ -52,10 +82,18 @@ async function make(argv){
         return;
     }
 
+    if (command == "galeria") {
+        await galeria.makeGfx();
+        galeria.makeHtml();
+        return;
+    }
+
     if( command == "gsrcdir"){
         oferta.makeOfertaSrcDir();
         return;
     }
+
+
     if(command === 'frame'){
         mergeFrame.mergeToFrame(params[0]+".html");
         return;

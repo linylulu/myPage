@@ -4,7 +4,7 @@ import * as utils from './utils.js';
 import * as imageUtils from './image_utils.js';
 import * as mergeFrame from './merge_frame.js';
 
-export {makeIndex, makeCarouselGfx, lowerCase, addSizesToNames};
+export {makeIndex, makeCarouselGfx, addSizesToNames};
 
 
 
@@ -12,10 +12,12 @@ export {makeIndex, makeCarouselGfx, lowerCase, addSizesToNames};
 async function makeCarouselGfx(){
     const images = utils.readImagesList(cons.CAROUSEL_SRC_DIR,"_1x1.jpg");
     utils.makeDir(cons.rooted(cons.CAROUSEL_IMG_DIR));
-    images.forEach(s=>{
+    let i = 0;
+    for (i = 0; i < images.length; i++) {
+        const s = images[i];
         const  newName = cons.rooted(cons.CAROUSEL_IMG_DIR) + "/"+ s.name.replace("_1x1.jpg", "_440x440.webp");
-        imageUtils.readResizeSaveImg(s.path + "/" + s.name, newName, 440, 440);
-    });
+        await imageUtils.readResizeSaveImg(s.path + "/" + s.name, newName, 440, 440);
+    }
 }
 
 function makeIndex() {
@@ -45,11 +47,8 @@ function makeCarouselItem(image, active){
     return response;
 }
 
-function lowerCase() {
-    dirToLower(cons.OFERTA_SOURCE_DIR)
-}
 
-function dirToLower(dir) {
+export function dirToLower(dir) {
     const files = fs.readdirSync(dir, {withFileTypes: true});
     console.log(files);
     files.forEach(s => {
@@ -62,17 +61,14 @@ function dirToLower(dir) {
     });
 }
 
-async function addSizesToNames() {
-    await _addSizesToNames(cons.OFERTA_SOURCE_DIR)
-}
 
-async function _addSizesToNames(dir) {
+async function addSizesToNames(dir) {
     const files = fs.readdirSync(dir, {withFileTypes: true});
     let i = 0;
     for (i = 0; i < files.length; i++) {
         const s = files[i];
         if (s.isDirectory()) {
-            _addSizesToNames(dir + "/" + s.name);
+            addSizesToNames(dir + "/" + s.name);
         } else {
             if (s.name.endsWith(".jpg")) {
                 if (!(s.name.endsWith("_1x1.jpg") || s.name.endsWith("_16x9.jpg"))) {

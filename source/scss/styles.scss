@@ -41,6 +41,10 @@ $navbar-dark-hover-color: white;
 
 @import "../../node_modules/bootstrap/scss/buttons";
 @import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/spinners";
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
@@ -126,7 +130,16 @@ header {
 .write-us-form-textarea {
   display: block;
   width: 100%;
+}
 
+.my-modal-dialog {
+  margin: auto;
+  max-width: none;
+  width: fit-content;
+}
+
+.vert-gut-30 {
+  row-gap: 20px;
 }
 
 

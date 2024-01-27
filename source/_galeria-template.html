@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="img/logo-baza-tylko-konik.svg">
+    <link rel="stylesheet" href="3rd/css/bootstrap-icons.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Galeria|Liny LuLu</title>
+</head>
+<body>
+
+<main class="container ps-0 pe-0 ps-md-1 pe-md-1 pt-2 pb-2" style="background-color:#c0c0c0;">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog my-modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+                <div class="modal-body">
+                    <div class="position-relative">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        <img id="modal_big_pic" src="" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex vert-gut-30 align-content-start flex-wrap justify-content-around">
+        <!--template-start-->
+
+        <!--template-end-->
+    </div>
+</main>
+<script src="3rd/js/bootstrap.js"></script>
+<script>
+    const myModalEl = document.getElementById('exampleModal');
+    myModalEl.addEventListener('show.bs.modal', function (event) {
+        const modalBigPict = document.getElementById('modal_big_pic');
+        const bigPict = event.relatedTarget.dataset.bigPic;
+        modalBigPict.setAttribute('src', bigPict);
+
+    })
+</script>
+</body>
+</html>

@@ -46,7 +46,7 @@
     "description": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
-    "id": "wodze_letkie",
+    "id": "wodze_lekkie",
     "name": "wodze lekkie 2,8m",
     "prices": [
       {
@@ -63,7 +63,7 @@
     "description": "Wodze lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. "
   },
   {
-    "id": "wodze_cienszkie",
+    "id": "wodze_ciezkie",
     "name": "wodze ciężkie 2,8m",
     "prices": [
       {
@@ -80,7 +80,7 @@
     "description": "Wodze ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
-    "id": "wodze_west_letkie",
+    "id": "wodze_west_lekkie",
     "name": "wodze west dzielone lekkie 2x2m",
     "prices": [
       {
@@ -96,7 +96,7 @@
     "description": "Wodze west dzielone lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
-    "id": "wodze_west_cienszkie",
+    "id": "wodze_west_ciezkie",
     "name": "wodze west dzielone ciężkie 2x2m",
     "prices": [
       {
@@ -112,7 +112,7 @@
     "description": "Wodze west dzielone ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 12 lub 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
-    "id": "lina_letka",
+    "id": "lina_lekka",
     "name": "lina lekka",
     "prices": [
       {
@@ -135,10 +135,10 @@
         "additional": true
       }
     ],
-    "description": "Lina lekka: Lina treningowa, wykonana z lekkiej liny polipropylenowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "description": "Lina lekka: Lina treningowa, wykonana z lekkiej liny polipropylenowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
-    "id": "lina_cienszka",
+    "id": "lina_ciezka",
     "name": "lina ciężka",
     "prices": [
       {
@@ -161,10 +161,10 @@
         "additional": true
       }
     ],
-    "description": "Lina ciężka: Lina treningowa, wykonana z ciężkiej liny poliestrowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "description": "Lina ciężka: Lina treningowa, wykonana z ciężkiej liny poliestrowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
-    "id": "lina_cienszka_elana",
+    "id": "lina_ciezka_elana",
     "name": "lina ciężka (Elana/multicolor)",
     "prices": [
       {
@@ -187,7 +187,7 @@
         "additional": true
       }
     ],
-    "description": "Lina ciężka elana/ multicolor: Lina treningowa, wykonana z ciężkiej liny poliestrowej typie elana (imitującej przędzę naturalną) lub wielokolorowej, o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu kiny znajdujer się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "description": "Lina ciężka elana/ multicolor: Lina treningowa, wykonana z ciężkiej liny poliestrowej typie elana (imitującej przędzę naturalną) lub wielokolorowej, o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
     "id": "cordeo",
