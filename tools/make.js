@@ -53,12 +53,15 @@ async function make(argv){
         oferta.makeOfertaItems();
         oferta.makeKontakt();
         galeria.makeHtml();
-        //info.makeInfo();
+        info.makeAll();
         return;
     }
 
     if (command == "faq") {
-        info.makeFaqHtml();
+        // info.makeInformacje();
+        // info.makeRegulamin();
+        info.makePomiar();
+        // info.makeFaqHtml();
         return;
     }
 

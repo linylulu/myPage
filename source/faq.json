@@ -1,27 +1,27 @@
 [
   {
     "q": "Jak mogę złożyć zamówienie?",
-    "a": "Zamówienie można złożyć poprzez formularz kontaktowym na naszej stronie internetowej, wysyłając do nas e-mail na adres info@linylulu.com lub za pośrednictwem Messenger na naszym profilu fb.com/haltery.wodze.liny"
+    "a": "<p>Zamówienie można złożyć poprzez formularz kontaktowym na naszej stronie internetowej, wysyłając do nas e-mail na adres info@linylulu.com lub za pośrednictwem Messenger na naszym profilu <a href=\"https://fb.com/haltery.wodze.liny\">fb.com/haltery.wodze.liny</a>.</p>"
   },
   {
     "q": "Jak długo będę czekać na swoje zamówienie?",
-    "a": "Zamówienia realizowane są w ciągu 14 dni. Czas realizacji zamówienia liczony jest od daty zaksięgowania wpłaty."
+    "a": "<p>Zamówienia realizowane są w ciągu 14 dni. Czas realizacji zamówienia liczony jest od daty zaksięgowania wpłaty.</p>"
   },
   {
     "q": "Jak mogę opłacić swoje zamówienie?",
-    "a": "Zamówienie można opłacić blikiem lub standardowym przelewem"
+    "a": "<p>Zamówienie można opłacić blikiem lub standardowym przelewem.</p>"
   },
   {
     "q": "Jakie są dostępne formy dostawy?",
-    "a": "Zamówienia wysyłamy do paczkomatów Inpost lub kurierem Inpost"
+    "a": "<p>Zamówienia wysyłamy do paczkomatów Inpost lub kurierem Inpost.</p>"
   },
   {
     "q": "Jakie dane będą niezbędne do wysyłki mojego zamówienia?",
-    "a": "Celem nadania przesyłki z Państwa zamówieniem, niezbędne będzie podanie adresu dostawy (w przypadku wysyłki kurierem) lub adresu bądź numeru paczkomatu (w przypadku wysyłki do paczkomatu) oraz numeru kontaktowego oraz adresu e-mail"
+    "a": "<p>Celem nadania przesyłki z Państwa zamówieniem, niezbędne będzie podanie adresu dostawy (w przypadku wysyłki kurierem) lub adresu bądź numeru paczkomatu (w przypadku wysyłki do paczkomatu) oraz numeru kontaktowego oraz adresu e-mail.</p>"
   },
   {
     "q": "Czy mogę zwrócić zamówiony towar?",
-    "a": "Zamówione u nas towary wykonywane są na zamówienie wg. specyfikacji klienta, w związku z tym nie podlegają one zwrotom. W przypadku otrzymania towaru uszkodzonego przysługuje prawo do reklamacji."
+    "a": "<p>Zamówione u nas towary wykonywane są na zamówienie wg. specyfikacji klienta, w związku z tym nie podlegają one zwrotom. W przypadku otrzymania towaru uszkodzonego przysługuje prawo do reklamacji.</p>"
   },
   {
     "q": "Czy mogę zamówić produkt w rozmiarze innym niż standardowy?",

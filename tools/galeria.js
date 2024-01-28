@@ -4,26 +4,11 @@ import * as utils from './utils.js';
 import * as imageUtils from './image_utils.js';
 import * as mergeFrame from './merge_frame.js';
 import {GALERY_IMG_DIR} from "./const.js";
-// import * as util from "util";
 
 const GALERY_THUMB_H = 200;
 const THUMB_POSTIX = '_h200.webp';
 
-function makeKontakt() {
-    const name = 'kontakt.html';
-    fs.copyFileSync(cons.TEMPLATES_SRC_DIR + '/_kontakt-template.html', cons.TEMP_DIR + '/' + name);
-    mergeFrame.mergeToFrame(name);
 
-}
-
-/*
-   const s = files[i];
-        if (s.isDirectory()) {
-            addSizesToNames(dir + "/" + s.name);
-        } else {
-            if (s.name.endsWith(".jpg")) {
-                if (!(s.name.endsWith("_1x1.jpg") || s.name.endsWith("_16x9.jpg"))) {
- */
 
 async function makeThumb(directory, name) {
     const oldName = directory + "/" + name;

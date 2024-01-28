@@ -4,10 +4,41 @@ import * as utils from './utils.js';
 import * as imageUtils from './image_utils.js';
 import * as mergeFrame from './merge_frame.js';
 
+const HOME = {
+    'name': 'Strona główna',
+    'html': 'index.html'
+};
+const INFO = {
+    'name': 'Informacje',
+    'html': 'informacje.html'
+}
+
+const FAQ = {
+    'name': 'Faq',
+    'html': 'faq.html'
+};
+
+const REGULAMIN = {
+    'name': 'Regulamin',
+    'html': 'regulamin.html'
+};
+
+const POMIAR = {
+    'name': 'Pomiar',
+    'html': 'pomiarhtml'
+};
+
+export function makeAll() {
+    makeInformacje();
+    makeRegulamin();
+    makePomiar();
+    makeFaqHtml();
+}
+
 
 const QUA =
-    '<div class="m-5">' +
-    '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#{$id}" aria-expanded="false" aria-controls="collapse">\n' +
+    '<div class="m-2">' +
+    '<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#{$id}" aria-expanded="false" aria-controls="collapse">\n' +
     '{$question}' +
     '  </button>' +
     '<div class="collapse" id="{$id}">\n' +
@@ -34,19 +65,25 @@ export function makeFaqHtml() {
     }
     prefix += postfix;
     mergeFrame.saveAndMerge('faq.html', prefix,
-        [
-            {
-                'name': 'Strona główna',
-                'html': 'index.html'
-            },
-            {
-                'name': 'Informacje',
-                'html': 'informacje.html'
-            },
-            {
-                'name': 'Faq',
-                'html': 'faq.html'
-            }
-        ]);
+        [HOME, INFO, FAQ], 'informacje.html');
+}
 
+function makeTxt(template, bread, active) {
+    const name = template + '.html';
+    fs.copyFileSync(cons.TEMPLATES_SRC_DIR + '/_' + template + '-template.html', cons.TEMP_DIR + '/' + name);
+    mergeFrame.mergeToFrame(name, bread, active);
+
+}
+
+export function makeInformacje() {
+    makeTxt('informacje', [HOME, INFO], null);
+}
+
+export function makeRegulamin() {
+    makeTxt('regulamin', [HOME, INFO, REGULAMIN], 'informacje.html');
+
+}
+
+export function makePomiar() {
+    makeTxt('pomiar', [HOME, INFO, POMIAR], 'informacje.html');
 }
