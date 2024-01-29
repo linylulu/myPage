@@ -44,6 +44,7 @@ async function make(argv){
         oferta.makeKontakt();
         await galeria.makeGfx();
         galeria.makeHtml();
+        info.makeAll();
         return;
     }
     if (command == 'html') {
@@ -58,9 +59,10 @@ async function make(argv){
     }
 
     if (command == "faq") {
+        info.makeAll();
         // info.makeInformacje();
         // info.makeRegulamin();
-        info.makePomiar();
+        //info.makePomiar();
         // info.makeFaqHtml();
         return;
     }
