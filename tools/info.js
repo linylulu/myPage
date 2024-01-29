@@ -14,7 +14,7 @@ const INFO = {
 }
 
 const FAQ = {
-    'name': 'Faq',
+    'name': 'FAQ',
     'html': 'faq.html'
 };
 
