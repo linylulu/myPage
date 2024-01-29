@@ -30,7 +30,7 @@ const POMIAR = {
 
 export function makeAll() {
     makeInformacje();
-    makeRegulamin();
+    // makeRegulamin();
     makePomiar();
     makeFaqHtml();
 }
