@@ -25,12 +25,18 @@ const REGULAMIN = {
 
 const POMIAR = {
     'name': 'Pomiar',
-    'html': 'pomiarhtml'
+    'html': 'pomiar.html'
+};
+
+const RODO = {
+    'name': 'Polityka prywatności',
+    'html': 'polityka-prywatnosci.html'
 };
 
 export function makeAll() {
     makeInformacje();
-    // makeRegulamin();
+    makeRegulamin();
+    makeRODO();
     makePomiar();
     makeFaqHtml();
 }
@@ -81,6 +87,11 @@ export function makeInformacje() {
 
 export function makeRegulamin() {
     makeTxt('regulamin', [HOME, INFO, REGULAMIN], 'informacje.html');
+
+}
+
+export function makeRODO() {
+    makeTxt('polityka_prywatnosci', [HOME, INFO, RODO], 'informacje.html');
 
 }
 

@@ -198,5 +198,14 @@
         "price": 80
       }
     ], "description": "Cordeo: regulowane cordeo, wykonane z liny poliproplylenowej o średnicy 14mm. Doskonałe narzędzie, służące do jazdy bez ogłowia. Dzięki regulacji długości będzie pasować na każdego konia. Cordeo wykończone jest skórzanymi popperami. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+  },
+  {
+    "id": "bon_podarunkowy",
+    "name": "Bon podarunkowy",
+    "price_string": "to Ty ustalasz wartość!",
+    "fixed_images": [
+      "voucher"
+    ],
+    "description": "Nie wiesz co sprawi radość osobie, którą chcesz obdarować? Voucher na produkty z naszej oferty to idealny pomysł na prezent. Wystawiany na dowolnie wybraną kwotę, ważny 6 miesięcy od dnia zakupu."
   }
 ]

@@ -66,7 +66,7 @@ Open modal for @getbootstrap</button>
 </div>
 
 messanger
-<!-- Messenger Wtyczka czatu Code -->
+<!-- Messenger Wtyczka czatu Code  devel-->
 
     <div id="fb-root"></div>
 

@@ -37,7 +37,7 @@ export function readImagesList(dir, postfix) {
                 }
             }
         }
-        console.log("filesList",filesList);
+    // console.log("filesList",filesList);
         return filesList;
     }
 

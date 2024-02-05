@@ -16,8 +16,10 @@ function makeCennikHtml() {
 
     ofertaObj.forEach(item => {
         let tmp = '<li>';
-        tmp += '<a href="' + item.id + '.html" class="text-decoration-none">' + item.name;
-        if (item.prices.length == 1) {
+        tmp += '<a href="' + item.id + '.html" class="link-black">' + item.name;
+        if (item.prices === undefined) {
+            tmp += ' - ' + item.price_string;
+        } else if (item.prices.length == 1) {
             tmp += " - " + item.prices[0].price + 'zł';
         } else {
             let desc = '';
@@ -76,12 +78,16 @@ async function convertOfertaImages(subDir) {
     const targetDir = cons.rooted(cons.OFERTA_IMG_DIR) + '/' + subDir;
     const files = fs.readdirSync(sourceDir);
     utils.makeDir(targetDir);
-    const filtered = files.filter(s => s.endsWith('_1x1.jpg'));
+    const filtered = files.filter(s => s.endsWith('.jpg'));
     let i = 0;
     for (i = 0; i < filtered.length; i++) {
         const s = filtered[i];
-        const newName = targetDir + '/'+ s.replace('_1x1.jpg', '_1024x1024.webp')
-        await imageUtils.readResizeSaveImg(sourceDir + '/' + s, newName, 1024, 1024);
+        if (s.endsWith('1x1.jpg')) {
+            const newName = targetDir + '/' + s.replace('_1x1.jpg', '_1024x1024.webp')
+            await imageUtils.readResizeSaveImg(sourceDir + '/' + s, newName, 1024, 1024);
+        } else {
+            fs.copyFileSync(sourceDir + '/' + s, targetDir + '/' + s)
+        }
     }
 }
 
@@ -152,13 +158,17 @@ const GAL_ITEM_DESC =
 
 function calcPrices(item) {
     let tmp = '';
+    if (item.prices === undefined) {
+        tmp += '<li>' + item.price_string + '</li>\n';
+    } else {
     item.prices.forEach(pr => {
         tmp += '<li>' + pr.name + ' - ' + pr.price + 'zł</li>\n';
     });
-    if( item.options != null){
-        item.options.forEach(op=>{
-            tmp += '<li>' + op.name + (op.additional ? ' +' :  ' - ') + op.price + 'zł</li>\n';
+        if (item.options != null) {
+            item.options.forEach(op => {
+                tmp += '<li>' + op.name + (op.additional ? ' +' : ' - ') + op.price + 'zł</li>\n';
         });
+    }
     }
     return tmp;
 }
@@ -196,22 +206,31 @@ function makeOfertaItemHtml(item) {
 
 function galeryItemCarousel(item) {
     const imgDir = cons.OFERTA_IMG_DIR + "/" + item.id + '/';
-    const makeCarousel = item.images.length > 1;
+    let images = item.images;
+    if (item.fixed_images !== undefined) {
+        images = [];
+        item.fixed_images.forEach(i => images.push(i + '.jpg'));
+    }
+
+    const makeCarousel = images.length > 1;
     let result = '<div class="product-slick">\n';
     let nr = 0;
-    item.images.forEach(image=>{
+    images.forEach(image => {
         result += '<div><img src="{$image}" alt="" class="img-fluid  image_zoom_cls-{$nr}"></div>\n'
-            .replace('{$image}',imgDir+image.name)
-            .replace('{$nr}',nr)
+            .replace('{$image}', imgDir + image)
+            .replace('{$nr}', nr)
         nr++;
     })
     result += '</div>';
+    if (images.length > 1) {
+
     result += '<div class="row"><div class="col-12 p-0"><div class="slider-nav">\n';
-    item.images.forEach(image=>{
+        images.forEach(image => {
         result += '<div><img src="{$image}" alt="" class="img-fluid "></div>\n'
-            .replace('{$image}',imgDir+image.name)
+            .replace('{$image}', imgDir + image)
     })
     result += '</div></div></div>\n';
+    }
     return result;
 }
 
@@ -243,12 +262,7 @@ function readJson(withSources = true) {
 function readSourceDirectory(ofertaObj, sourceGaleryDir) {
     const currentDir = sourceGaleryDir + "/" + ofertaObj.id;
     const files = fs.readdirSync(currentDir);
-    const jpegFiles = files.filter(s => s.endsWith("_1024x1024.webp"));
-    ofertaObj.images = [];
-    jpegFiles.forEach(s => {
-        const description = "";
-        ofertaObj.images.push({name: s, description: description});
-    })
+    ofertaObj.images = files.filter(s => s.endsWith("_1024x1024.webp"));
 }
 
 

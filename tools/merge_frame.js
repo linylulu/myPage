@@ -24,10 +24,12 @@ export function mergeToFrame(pageName, breadCrumbs, makeActive = null) {
     swapScripts(frameDoc,pageDoc);
     adjustNavBar(frameDoc,pageName,makeActive!=null? makeActive : pageName);
     adjustImages(frameDoc);
-    const str = frame.serialize();
-    const html = str.replace('{$breadcrumb}', makeBreadCrumbs(breadCrumbs))
-    fs.writeFileSync(cons.ROOT_DIR + '/' + pageName, html);
-    // saveHtml(frame,cons.ROOT_DIR +'/' + pageName);
+    let str = frame.serialize();
+    str = str.replace('{$breadcrumb}', makeBreadCrumbs(breadCrumbs));
+    str = str.replace('<meta name="cookieyes">', cons.ENV.cookieyes);
+    str = str.replace('{$fb-chat-js}', cons.ENV.fb_chat);
+
+    fs.writeFileSync(cons.ROOT_DIR + '/' + pageName, str);
 }
 
 const TEMPLATE_LINK = '<li class="breadcrumb-item"><a href={$html}>{$name}</a></li>';
@@ -78,31 +80,40 @@ function adjustNavBar(frameDoc,thisPage,makeActive){
 function swapHead(targetDoc,sourceDoc) {
     const sourceRoot = sourceDoc.getElementsByTagName("html")[0];
     const sourceHead = sourceRoot.getElementsByTagName("head")[0];
-    const links = sourceHead.getElementsByTagName("link");
-    let i = 0;
-    for( i=0; i<links.length; i++ ){
-        shortenAttribute(links[i],"href");
-    }
+    const sourceTitle = sourceHead.getElementsByTagName("title")[0];
+
+    //
+    // let i = 0;
+    // for( i=0; i<links.length; i++ ){
+    //     shortenAttribute(links[i],"href");
+    // }
     const targetRoot = targetDoc.getElementsByTagName("html")[0];
     const targetHead = targetRoot.getElementsByTagName("head")[0];
-    targetHead.replaceWith(targetDoc.adoptNode(sourceHead));
+    const targetTitle = targetHead.getElementsByTagName("title")[0];
+    targetTitle.replaceWith(targetDoc.adoptNode(sourceTitle));
+
+    const targetStylePlace = targetDoc.getElementById("xxx");
+    const links = sourceHead.getElementsByTagName("link");
+
+    while (links.length > 0) {
+        const item = targetDoc.adoptNode(links[0]);
+        targetHead.insertBefore(item, targetStylePlace);
+    }
+    targetHead.removeChild(targetStylePlace);
 }
 
 function swapScripts(targetDoc,sourceDoc){
-    const sourceHtml = sourceDoc.getElementsByTagName("body")[0];
-    const sourceScripts = sourceHtml.getElementsByTagName("script");
+    const sourceBody = sourceDoc.getElementsByTagName("body")[0];
+    const sourceScripts = sourceBody.getElementsByTagName("script");
 
-    const targetHtml = targetDoc.getElementsByTagName("body")[0];
-    const targetScripts = targetHtml.getElementsByTagName("script");
-    let i = 0;
-    for( i=targetScripts.length-1; i>=0;i--){
-        targetHtml.removeChild(targetScripts[i]);
+    const targetBody = targetDoc.getElementsByTagName("body")[0];
+    const targetScriptPlace = targetDoc.getElementById("yyy");
+
+    while (sourceScripts.length > 0) {
+        const item = targetDoc.adoptNode(sourceScripts[0]);
+        targetBody.insertBefore(item, targetScriptPlace);
     }
-    while( sourceScripts.length > 0){
-        const ss = sourceScripts[0];
-        shortenAttribute(ss,"src");
-        targetHtml.appendChild(targetDoc.adoptNode(ss));
-    }
+    targetBody.removeChild(targetScriptPlace);
 }
 
 function shortenAttribute(element, attr){

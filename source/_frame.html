@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="img/logo-baza-tylko-konik.svg">
+  <link rel="icon" href="img/logo-baza-tylko-konik.svg">
   <link rel="stylesheet" href="3rd/css/bootstrap-icons.min.css">
+  <link id="xxx">
   <link href="css/styles.css" rel="stylesheet">
+  <!-- Start cookieyes banner -->
+  <meta name="cookieyes">
+  <!-- End cookieyes banner -->
   <title>TITLE</title>
 </head>
 <body>
@@ -55,8 +59,6 @@
 <nav aria-label="breadcrumb">
   <ol class="container breadcrumb mt-1 mb-1 p-2">
     {$breadcrumb}
-    <!--    <li class="breadcrumb-item"><a href="oferta.html">Oferta</a></li>-->
-    <!--    <li class="breadcrumb-item active" aria-current="page">{$name}</li>-->
   </ol>
 </nav>
 <main class="container p-2 " style="background-color:#c0c0c0;">
@@ -73,7 +75,9 @@
       <ul>
         <li><a class="text-decoration-none link-black" href="pomiar.html">Pomiar</a></li>
         <li><a class="text-decoration-none link-black" href="faq.html">FAQ</a></li>
-        <!--        <li><a class="text-decoration-none link-black" href="regulamin.html">Regulamin</a></li>-->
+        <li><a class="text-decoration-none link-black" href="regulamin.html">Regulamin</a></li>
+        <li><a class="text-decoration-none link-black" href="polityka_prywatnosci.html">Polityka prywatności</a></li>
+        <li><a href="#" class="text-decoration-none link-black cky-banner-element">Ustawienia Cookies</a></li>
       </ul>
     </div>
     <div class="order-lg-1 col-lg-6">
@@ -90,6 +94,11 @@
     </div>
   </div>
 </footer>
-<script src="3rd/js/bootstrap.js"></script>
+<!--fb chat plugin-->
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat"></div>
+<!--fb chat plugin-->
+<link id="yyy">
+<script src="{$fb-chat-js}"></script>
 </body>
 </html>

@@ -20,8 +20,25 @@ const FAQ_JSON_NAME = "source/faq.json";
 const TEMPLATE_START = '<!--template-start-->';
 const TEMPLATE_END = '<!--template-end-->';
 
+const PROD = {
+    'cookieyes': '<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/20346a785abe28b258d98db3/script.js"></script>',
+    'fb_chat': '/js/fb-chat-prod.js'
+};
+
+const DEVEL = {
+    'cookieyes': '<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3f5feb70fddce494fd5ecfe0/script.js"></script>',
+    'fb_chat': '/js/fb-chat-devel.js'
+};
+
+let ENV = PROD;
+
+function setDevel() {
+    ENV = DEVEL;
+}
 
 export {
+    setDevel,
+    ENV,
     rooted,
     ROOT_DIR,
     IMG_DIR,

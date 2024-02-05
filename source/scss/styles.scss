@@ -149,8 +149,8 @@ header {
 }
 
 .link-black {
+  text-decoration: none;
   color: black;
-
   &:hover {
     color: #303030;
   }
@@ -161,4 +161,11 @@ header {
     margin-bottom: 0.2rem;
   }
 }
+
+.rodo {
+  dd {
+    margin-left: 1.0rem;
+  }
+}
+
 

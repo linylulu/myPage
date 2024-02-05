@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run css",
     "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 source/scss -o public_html/css/",
-    "css-lint": "stylelint scss/",
+    "css-lint": "stylelint source/scss",
     "css-prefix": "postcss --replace public_html/css/styles.css --use autoprefixer --map",
     "css-purge": "purgecss --keyframes --css public_html/css/styles.css --content index.html \\\"node_modules/bootstrap/js/dist/{util,modal}.js\\\" --output public_html/css/",
     "css": "npm-run-all css-compile css-prefix",
