@@ -26,8 +26,10 @@ const PROD = {
 };
 
 const DEVEL = {
-    'cookieyes': '<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3f5feb70fddce494fd5ecfe0/script.js"></script>',
-    'fb_chat': '/js/fb-chat-devel.js'
+//    'cookieyes': '<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3f5feb70fddce494fd5ecfe0/script.js"></script>',
+//    'fb_chat': '/js/fb-chat-devel.js'
+    'cookieyes': '',
+    'fb_chat': ''
 };
 
 let ENV = PROD;
