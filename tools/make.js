@@ -17,9 +17,9 @@ function mkdirs() {
 }
 
 async function prep_gfx() {
-    await index.dirToLower(cons.IMAGES_SRC_DIR);
     await index.addSizesToNames(cons.CAROUSEL_SRC_DIR);
     await index.addSizesToNames(cons.OFERTA_SRC_DIR);
+    await index.addSizesToNames(cons.GALERY_SRC_DIR);
 }
 
 async function makeIndex() {
@@ -30,7 +30,7 @@ async function makeIndex() {
 
 
 async function make(argv){
-    cons.setDevel();
+//    cons.setDevel();
     const command = argv[2];
 //    const params = argv.slice(3,argv.length);
 
@@ -49,7 +49,7 @@ async function make(argv){
         return;
     }
     if (command == 'html') {
-        await makeIndex();
+        await index.makeIndex();
         await oferta.makeCennikHtml();
         oferta.makeOfertaHtml();
         oferta.makeOfertaItems();
@@ -61,10 +61,6 @@ async function make(argv){
 
     if (command == "faq") {
         info.makeAll();
-        // info.makeInformacje();
-        // info.makeRegulamin();
-        //info.makePomiar();
-        // info.makeFaqHtml();
         return;
     }
 

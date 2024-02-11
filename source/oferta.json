@@ -1,7 +1,8 @@
 [
   {
     "id": "halter",
-    "name": "halter zwykły",
+    "name": "halter",
+    "meta": "podstawowe narzędzie treningowe, do jazdy i pracy z ziemi",
     "prices": [
       {
         "name" : "halter",
@@ -20,11 +21,12 @@
         "additional" : true
       }
     ],
-    "description": "Halter zwykły: wykonany z liny poliestrowej o średnicy 6mm, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "description": "Halter zwykły: wykonany z liny poliestrowej o średnicy 6mm, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
     "id": "halter_elana",
-    "name": "halter zwykły (Elana/multicolor)",
+    "name": "halter (Elana/multicolor)",
+    "meta": "halter elana/multicolor - podstawowe narzędzie treningowe, do jazdy i pracy z ziemi, wykonany z lin premium",
     "prices": [
       {
         "name" : "halter",
@@ -43,11 +45,12 @@
         "additional" : true
       }
     ],
-    "description": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "description": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
     "id": "wodze_lekkie",
     "name": "wodze lekkie 2,8m",
+    "meta": "wodze lekkie - wodze do jazdy, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
     "prices": [
       {
         "name" : "wodze",
@@ -65,6 +68,7 @@
   {
     "id": "wodze_ciezkie",
     "name": "wodze ciężkie 2,8m",
+    "meta": "wodze ciężkie- wodze do jazdy, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie ",
     "prices": [
       {
         "name" : "wodze",
@@ -82,6 +86,7 @@
   {
     "id": "wodze_west_lekkie",
     "name": "wodze west dzielone lekkie 2x2m",
+    "meta": "wodze west lekkie - wodze do jazdy podwójne, w stylu west, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
     "prices": [
       {
         "name" : "wodze",
@@ -98,6 +103,7 @@
   {
     "id": "wodze_west_ciezkie",
     "name": "wodze west dzielone ciężkie 2x2m",
+    "meta": "wodze west ciężkie - wodze do jazdy podwójne, w stylu west, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
     "prices": [
       {
         "name" : "wodze",
@@ -114,6 +120,7 @@
   {
     "id": "lina_lekka",
     "name": "lina lekka",
+    "meta": "lina lekka - lina polipropylenowa, delikatna, idealna do pracy z końmi na wysokim poziomie zaawansowania, odpowiadających na najlżejsze sygnały",
     "prices": [
       {
         "name": "3,6m",
@@ -140,6 +147,7 @@
   {
     "id": "lina_ciezka",
     "name": "lina ciężka",
+    "meta": "lina ciężka - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego",
     "prices": [
       {
         "name": "3,6m",
@@ -166,6 +174,7 @@
   {
     "id": "lina_ciezka_elana",
     "name": "lina ciężka (Elana/multicolor)",
+    "meta": "lina ciężka elana/multicolor - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego, wykonana z lin premium ",
     "prices": [
       {
         "name": "3,6m",
@@ -192,6 +201,7 @@
   {
     "id": "cordeo",
     "name": "cordeo",
+    "meta": "cordeo - regulowane cordeo do jazdy, idealne urozmaicenie pracy z koniem, poprawa komunikacji z koniem",
     "prices": [
       {
         "name" : "cordeo",
@@ -202,6 +212,7 @@
   {
     "id": "bon_podarunkowy",
     "name": "Bon podarunkowy",
+    "meta": "bon podarunkowy - bon podarunkowty na zakup produktów z asrtymentu liny lulu, jego wartość jest dowolnie ustalana przez kupującego",
     "price_string": "to Ty ustalasz wartość!",
     "fixed_images": [
       "voucher"

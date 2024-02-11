@@ -66,7 +66,6 @@ $navbar-dark-hover-color: white;
 //  fill: currentcolor;
 //}
 
-
 .nav-pills {
   li:hover {
     background-color: #909090;
@@ -122,9 +121,6 @@ header {
     width: fit-content;
   }
 }
-.invisible{
-  display:none;
-}
 
 .js-slick-carousel{
 }
@@ -168,4 +164,6 @@ header {
   }
 }
 
-
+.ratio-25 {
+  --bs-aspect-ratio: 25%;
+}

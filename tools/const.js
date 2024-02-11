@@ -17,6 +17,8 @@ const TEMPLATES_SRC_DIR = 'source';
 const OFERTA_JSON_NAME = "source/oferta.json";
 const FAQ_JSON_NAME = "source/faq.json";
 
+const IMG_JSON_NAME = 'images.json';
+
 const TEMPLATE_START = '<!--template-start-->';
 const TEMPLATE_END = '<!--template-end-->';
 
@@ -61,11 +63,10 @@ export {
     TEMPLATE_END,
 
     OFERTA_JSON_NAME,
-    FAQ_JSON_NAME
-
-
-
+    FAQ_JSON_NAME,
+    IMG_JSON_NAME
 };
+
 function rooted(path){
     return ROOT_DIR + '/' + path;
 }

@@ -7,9 +7,8 @@ import * as mergeFrame from './merge_frame.js';
 
 export {makeCennikHtml, makeOfertaGfx, makeOfertaHtml, makeOfertaItems, makeOfertaSrcDir, makeKontakt};
 
-
 function makeCennikHtml() {
-    const ofertaObj = readJson(false);
+    const ofertaObj = utils.readJson(cons.OFERTA_JSON_NAME);
     const template = utils.readFileContent(cons.TEMPLATES_SRC_DIR+'/_cennik-template.html');
     let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
@@ -65,37 +64,67 @@ function makeCennikHtml() {
 /////////////////////////////////////////////////////
 
 async function makeOfertaGfx() {
-    const ofertaObj = readJson(false);
+    const ofertaObj = utils.readJson(cons.OFERTA_JSON_NAME);
     let i = 0;
     for (i = 0; i < ofertaObj.length; i++) {
         const item = ofertaObj[i];
-        await convertOfertaImages(item.id);
+        await convertOfertaImages(item);
     }
 }
 
-async function convertOfertaImages(subDir) {
-    const sourceDir = cons.OFERTA_SRC_DIR + '/' + subDir;
-    const targetDir = cons.rooted(cons.OFERTA_IMG_DIR) + '/' + subDir;
-    const files = fs.readdirSync(sourceDir);
-    utils.makeDir(targetDir);
-    const filtered = files.filter(s => s.endsWith('.jpg'));
+function newW(w, h, newH) {
+    return Math.round((w * newH) / h);
+}
+
+async function convertOfertaImages(item) {
+    const sourceDir = cons.OFERTA_SRC_DIR + '/' + item.id;
+    const targetDir = cons.OFERTA_IMG_DIR + '/' + item.id
+    const targetRootedDir = cons.rooted(targetDir);
+    const images = utils.readJson(sourceDir + '/' + cons.IMG_JSON_NAME);
+    utils.makeDir(targetRootedDir);
+    utils.makeDir(targetRootedDir + '/thumb');
+    utils.makeDir(targetRootedDir + "/big");
+    const img = [];
+
     let i = 0;
-    for (i = 0; i < filtered.length; i++) {
-        const s = filtered[i];
-        if (s.endsWith('1x1.jpg')) {
-            const newName = targetDir + '/' + s.replace('_1x1.jpg', '_1024x1024.webp')
-            await imageUtils.readResizeSaveImg(sourceDir + '/' + s, newName, 1024, 1024);
-        } else {
-            fs.copyFileSync(sourceDir + '/' + s, targetDir + '/' + s)
-        }
+    for (i = 0; i < images.length; i++) {
+        const image = images[i];
+        const w = image.width;
+        const h = image.height;
+
+        const main = await makeOneSize(image, newW(w, h, 440), 440, sourceDir, targetRootedDir, '');
+        main.fileName = image.fileName;
+        main.thumb = await makeOneSize(image, newW(w, h, 240), 240, sourceDir, targetRootedDir, 'thumb/');
+        main.big = await makeOneSize(image, newW(w, h, 1024), 1024, sourceDir, targetRootedDir, 'big/');
+
+        img.push(main);
     }
+    img.sort((a, b) => {
+        return a.fileName.localeCompare(b.fileName);
+    });
+    utils.saveJson(targetRootedDir + '/' + cons.IMG_JSON_NAME, img);
+}
+
+
+async function makeOneSize(image, width, height, sourceDir, targetDir, targetSubdir) {
+    const newName = targetSubdir + image.newName + '.jpg';
+
+    await imageUtils.readResizeSaveImg(sourceDir + '/' + image.fileName,
+        targetDir + '/' + newName, width, height);
+
+    return {
+        'alt': image.alt,
+        'width': width,
+        'height': height,
+        'name': newName
+    };
 }
 
 const CARD_TEMPLATE =
     '        <div class="col">\n' +
     '<a class="unset" href="{$id}.html">\n' +
     '            <div class="card h-100">\n' +
-    '                <img src="{$image}" class="card-img-top" alt="{$name}">\n' +
+    '                <img src="/{$image}" width="{$width}" height="{$height}" class="img-fluid" loading="lazy" alt="{$alt}">\n' +
     '                <div class="card-body">\n' +
     '                    <h5 class="card-title">{$name}</h5>\n' +
     '                </div>\n' +
@@ -104,18 +133,17 @@ const CARD_TEMPLATE =
     '        </div>\n';
 
 function makeOfertaHtml() {
-    const ofertaObj = readJson();
+    const ofertaObj = utils.readJson(cons.OFERTA_JSON_NAME);
     const template = utils.readFileContent(cons.TEMPLATES_SRC_DIR +'/_oferta-template.html');
     let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
     ofertaObj.forEach(item => {
-        var imgDir = cons.OFERTA_IMG_DIR + '/' + item.id;
-        const mainImage = fs.readdirSync(cons.rooted(imgDir)).filter(s=>s.endsWith("_1024x1024.webp"))[0];
-
-        var str = CARD_TEMPLATE.replace(/\{\$name\}/g, item.name).replace('{$id}',item.id);
-        str = str.replace(/\{\$image\}/g, imgDir+"/"+mainImage);
+        const itemDir = cons.OFERTA_IMG_DIR + '/' + item.id;
+        const itemImages = utils.readJson(cons.rooted(itemDir) + '/' + cons.IMG_JSON_NAME);
+        const image = itemImages[0];
+        let str = CARD_TEMPLATE.replace('{$name}', item.name).replace('{$id}', item.id);
+        str = imageUtils.replaceWidthHeightAltName(str, image, itemDir);
         prefix += str;
-
     });
     prefix += postfix;
     mergeFrame.saveAndMerge("oferta.html", prefix,
@@ -132,13 +160,10 @@ function makeOfertaHtml() {
 }
 
 function makeOfertaItems() {
-    const ofertaObj = readJson();
-    ofertaObj.forEach(item => makeOneOfertaItem(item, []));
+    const ofertaObj = utils.readJson(cons.OFERTA_JSON_NAME);
+    ofertaObj.forEach(item => makeOfertaItemHtml(item));
 }
 
-function makeOneOfertaItem(item, args) {
-    makeOfertaItemHtml(item);
-}
 
 const GAL_ITEM_DESC =
     '  <div class="row m-0">\n' +
@@ -179,7 +204,8 @@ function makeOfertaItemHtml(item) {
     const template = utils.readFileContent(cons.TEMPLATES_SRC_DIR + '/_oferta-item-template.html');
     let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
-    prefix = prefix.replace(/\{\$name\}/g, item.name);
+    prefix = prefix.replace('{$name}', item.name);
+    prefix = prefix.replace('{$meta}', item.meta);
     let desc = GAL_ITEM_DESC.replace('{$description}', item.description);
     desc = desc.replace('{$prices}', calcPrices(item))
     desc = desc.replace('{$carousel}',galeryItemCarousel(item));
@@ -205,20 +231,22 @@ function makeOfertaItemHtml(item) {
 
 
 function galeryItemCarousel(item) {
-    const imgDir = cons.OFERTA_IMG_DIR + "/" + item.id + '/';
-    let images = item.images;
+    const imgDir = cons.OFERTA_IMG_DIR + '/' + item.id;
+    let images = utils.readJson(cons.rooted(imgDir) + '/' + cons.IMG_JSON_NAME)
+
+
     if (item.fixed_images !== undefined) {
-        images = [];
-        item.fixed_images.forEach(i => images.push(i + '.jpg'));
+        images = images.filter(img => item.fixed_images.includes(img.alt));
     }
 
     const makeCarousel = images.length > 1;
     let result = '<div class="product-slick">\n';
     let nr = 0;
     images.forEach(image => {
-        result += '<div><img src="{$image}" alt="" class="img-fluid  image_zoom_cls-{$nr}"></div>\n'
-            .replace('{$image}', imgDir + image)
-            .replace('{$nr}', nr)
+        let item = '<div><img src="/{$image}" width="{$width}" height="{$height}" alt="{$alt}" loading="lazy" class="img-fluid  image_zoom_cls-{$nr}"></div>\n';
+        item = imageUtils.replaceWidthHeightAltName(item, image.big, imgDir)
+            .replace('{$nr}', nr);
+        result += item;
         nr++;
     })
     result += '</div>';
@@ -226,8 +254,11 @@ function galeryItemCarousel(item) {
 
     result += '<div class="row"><div class="col-12 p-0"><div class="slider-nav">\n';
         images.forEach(image => {
-        result += '<div><img src="{$image}" alt="" class="img-fluid "></div>\n'
-            .replace('{$image}', imgDir + image)
+            result += imageUtils.replaceWidthHeightAltName(
+                '<div><img data-lazy="/{$image}" width="{$width}" height="{$height}" alt="{$alt}" class="img-fluid "></div>\n',
+                image.thumb,
+                imgDir);
+
     })
     result += '</div></div></div>\n';
     }
@@ -250,14 +281,6 @@ function makeOfertaSrcDir() {
 }
 
 /////////////////////////////////////////////////////
-function readJson(withSources = true) {
-    const jsonContent = fs.readFileSync(cons.OFERTA_JSON_NAME, 'utf8');
-    const obj = JSON.parse(jsonContent);
-    if (withSources) {
-        obj.forEach(item => readSourceDirectory(item, cons.rooted(cons.OFERTA_IMG_DIR)));
-    }
-    return obj;
-}
 
 function readSourceDirectory(ofertaObj, sourceGaleryDir) {
     const currentDir = sourceGaleryDir + "/" + ofertaObj.id;

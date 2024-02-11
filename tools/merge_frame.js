@@ -23,7 +23,7 @@ export function mergeToFrame(pageName, breadCrumbs, makeActive = null) {
     swapMain(frameDoc,pageDoc);
     swapScripts(frameDoc,pageDoc);
     adjustNavBar(frameDoc,pageName,makeActive!=null? makeActive : pageName);
-    adjustImages(frameDoc);
+//    adjustImages(frameDoc);
     let str = frame.serialize();
     str = str.replace('{$breadcrumb}', makeBreadCrumbs(breadCrumbs));
     str = str.replace('<meta name="cookieyes">', cons.ENV.cookieyes);
@@ -52,13 +52,13 @@ function makeBreadCrumbs(breadCrumbs) {
     return str;
 }
 
-function adjustImages(frameDoc){
-    const images = frameDoc.getElementsByTagName("img");
-    let i = 0;
-    for( i=0; i<images.length; i++) {
-        shortenAttribute(images[i], "src");
-    }
-}
+// function adjustImages(frameDoc){
+//     const images = frameDoc.getElementsByTagName("img");
+//     let i = 0;
+//     for( i=0; i<images.length; i++) {
+//         shortenAttribute(images[i], "src");
+//     }
+// }
 
 function adjustNavBar(frameDoc,thisPage,makeActive){
     console.log(thisPage,makeActive);
@@ -81,7 +81,7 @@ function swapHead(targetDoc,sourceDoc) {
     const sourceRoot = sourceDoc.getElementsByTagName("html")[0];
     const sourceHead = sourceRoot.getElementsByTagName("head")[0];
     const sourceTitle = sourceHead.getElementsByTagName("title")[0];
-
+    const sourceMeta = sourceHead.getElementsByTagName("meta")[0];
     //
     // let i = 0;
     // for( i=0; i<links.length; i++ ){
@@ -90,16 +90,18 @@ function swapHead(targetDoc,sourceDoc) {
     const targetRoot = targetDoc.getElementsByTagName("html")[0];
     const targetHead = targetRoot.getElementsByTagName("head")[0];
     const targetTitle = targetHead.getElementsByTagName("title")[0];
+    const targetMeta = targetDoc.getElementById("metaDesc")
     targetTitle.replaceWith(targetDoc.adoptNode(sourceTitle));
+    targetMeta.replaceWith(targetDoc.adoptNode(sourceMeta));
 
-    const targetStylePlace = targetDoc.getElementById("xxx");
-    const links = sourceHead.getElementsByTagName("link");
-
-    while (links.length > 0) {
-        const item = targetDoc.adoptNode(links[0]);
-        targetHead.insertBefore(item, targetStylePlace);
-    }
-    targetHead.removeChild(targetStylePlace);
+    // const targetStylePlace = targetDoc.getElementById("xxx");
+    // const links = sourceHead.getElementsByTagName("link");
+    //
+    // while (links.length > 0) {
+    //     const item = targetDoc.adoptNode(links[0]);
+    //     targetHead.insertBefore(item, targetStylePlace);
+    // }
+    // targetHead.removeChild(targetStylePlace);
 }
 
 function swapScripts(targetDoc,sourceDoc){

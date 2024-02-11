@@ -1,4 +1,5 @@
 import * as  fs from 'fs'
+import * as cons from "./const.js";
 
 
 export function readFileContent(fileName) {
@@ -21,6 +22,16 @@ export function copyDir(src, dest) {
         this.makeDir(dest);
         fs.cpSync(src,dest,{ recursive: true });
     };
+
+export function saveJson(fileName, object) {
+    fs.writeFileSync(fileName, JSON.stringify(object));
+}
+
+export function readJson(fileName) {
+    const jsonContent = fs.readFileSync(fileName, 'utf8');
+    return JSON.parse(jsonContent);
+}
+
 
 export function readImagesList(dir, postfix) {
         let filesList = [];
