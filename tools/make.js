@@ -30,7 +30,7 @@ async function makeIndex() {
 
 
 async function make(argv){
-    cons.setDevel();
+    //cons.setDevel();
     const command = argv[2];
 //    const params = argv.slice(3,argv.length);
 
