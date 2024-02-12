@@ -167,13 +167,14 @@ function makeOfertaItems() {
 
 const GAL_ITEM_DESC =
     '  <div class="row m-0">\n' +
-    '    <div class="col-lg-4">\n' +
+    '    <div class="col-md-4">\n' +
     '{$carousel}' +
     '    </div>\n' +
-    '    <div class="col-8 p-4 fw-semibold fs-5">\n' +
-    '      <div class="pt-3 pt-sm-0">\n' +
+    '    <div class="col-md-8 p-4">\n' +
+    '       <div class="d-flex justify-content-center mb-3"><h1 class="fs-2">{$h1}</h1></div>' +
+    '      <div class="fw-semibold fs-5 pt-3 pt-sm-0">\n' +
     '        <p class="">Cena:</p>\n' +
-    '        <ul class="text-lowercase">\n' +
+    '        <ul>\n' +
     '          {$prices}' +
     '        </ul>\n' +
     '      </div>\n' +
@@ -205,8 +206,9 @@ function makeOfertaItemHtml(item) {
     let prefix = template.substring(0, template.indexOf(cons.TEMPLATE_START));
     const postfix = template.substring(template.indexOf(cons.TEMPLATE_END) + cons.TEMPLATE_END.length);
     prefix = prefix.replace('{$name}', item.name);
-    prefix = prefix.replace('{$meta}', item.meta);
-    let desc = GAL_ITEM_DESC.replace('{$description}', item.description);
+    prefix = prefix.replace('{$description}', item.description);
+    prefix = prefix.replace('{$keywords}', item.keywords);
+    let desc = GAL_ITEM_DESC.replace('{$description}', item.content).replace("{$h1}", item.h1);
     desc = desc.replace('{$prices}', calcPrices(item))
     desc = desc.replace('{$carousel}',galeryItemCarousel(item));
     prefix += desc;

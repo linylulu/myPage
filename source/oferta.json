@@ -2,7 +2,9 @@
   {
     "id": "halter",
     "name": "halter",
-    "meta": "podstawowe narzędzie treningowe, do jazdy i pracy z ziemi",
+    "description": "podstawowe narzędzie treningowe, do jazdy i pracy z ziemi",
+    "keywords": "halter, kantar sznurkowy, sidepull, ogłowie, praca z ziemi, bez wędzidła, jeździectwo naturalne, natural, parelli, NHS, PNHS",
+    "h1": "Halter do pracy z koniem",
     "prices": [
       {
         "name" : "halter",
@@ -21,12 +23,14 @@
         "additional" : true
       }
     ],
-    "description": "Halter zwykły: wykonany z liny poliestrowej o średnicy 6mm, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "content": "Halter zwykły: wykonany z liny poliestrowej o średnicy 6mm, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
     "id": "halter_elana",
     "name": "halter (Elana/multicolor)",
-    "meta": "halter elana/multicolor - podstawowe narzędzie treningowe, do jazdy i pracy z ziemi, wykonany z lin premium",
+    "description": "halter elana/multicolor - podstawowe narzędzie treningowe, do jazdy i pracy z ziemi, wykonany z lin premium",
+    "keywords": "halter, kantar sznurkowy, sidepull, ogłowie, praca z ziemi, bez wędzidła, jeździectwo naturalne, natural, parelli, NHS, PNHS, elana",
+    "h1": "Halter do pracy z koniem z liny elana lub multicolor",
     "prices": [
       {
         "name" : "halter",
@@ -45,12 +49,14 @@
         "additional" : true
       }
     ],
-    "description": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "content": "Halter zwykły elana/ multicolor: wykonany z liny poliestrowej o średnicy 6mm w typie elana (imitującej przędzę naturalną) lub wielokolorowej, która idealnie układa się na pysku konia oraz nie rozciąga się w czasie pracy. Halter doskonale sprawdza się zarówno do pracy z ziemi jak i do jazdy. Rozmiarówka standardowa shetty, pony, cob, full, xfull. Istnieje również możliwość wykonania haltera na wymiar. Instrukcję wykonania pomiaru znajdziesz <a href=\"pomiar.html\">TUTAJ</a>. Halter można uzupełnić dodatkowo oplotem na nachrapniku oraz/ lub  kółeczkami do podpiecia wodzy. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
     "id": "wodze_lekkie",
     "name": "wodze lekkie 2,8m",
-    "meta": "wodze lekkie - wodze do jazdy, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "description": "wodze lekkie - wodze do jazdy, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "keywords": "wodze linowe, wodze sznurkowe, wodze do kantara, wodze do haltera, lejce, PNHS, NHS, natural",
+    "h1": "Wodze lekkie 2,8m",
     "prices": [
       {
         "name" : "wodze",
@@ -63,12 +69,14 @@
       "additional" : true
     }
       ],
-    "description": "Wodze lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. "
+    "content": "Wodze lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Na zamówienie możemy wykonać inne długości wodzy."
   },
   {
     "id": "wodze_ciezkie",
     "name": "wodze ciężkie 2,8m",
-    "meta": "wodze ciężkie- wodze do jazdy, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie ",
+    "description": "wodze ciężkie- wodze do jazdy, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie ",
+    "keywords": "wodze linowe, wodze sznurkowe, wodze ciężkie, wodze z karabińczykami, wodze do kantara, wodze do haltera, lejce, PNHS, NHS, natural",
+    "h1": "Wodze ciężkie 2,8m",
     "prices": [
       {
         "name" : "wodze",
@@ -81,12 +89,14 @@
       "additional" : true
     }
     ],
-    "description": "Wodze ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "content": "Wodze ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 14mm, stardardowa długość 2,8m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów.Na zamówienie możemy wykonać inne długości wodzy."
   },
   {
     "id": "wodze_west_lekkie",
     "name": "wodze west dzielone lekkie 2x2m",
-    "meta": "wodze west lekkie - wodze do jazdy podwójne, w stylu west, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "description": "wodze west lekkie - wodze do jazdy podwójne, w stylu west, podstawowy model, zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "keywords": "wodze linowe, wodze west, wodze westowe, western, jazda w stylu western, wodze sznurkowe, wodze ciężkie, wodze z karabińczykami, wodze do kantara, wodze do haltera, lejce, PNHS, NHS, natural",
+    "h1": "Wodze west lekkie 2x2m",
     "prices": [
       {
         "name" : "wodze",
@@ -98,12 +108,14 @@
       "price": 25,
       "additional" : true
     }],
-    "description": "Wodze west dzielone lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "content": "Wodze west dzielone lekkie: wodze treningowe wykonane z lekkiej liny polipropylenowej o średnicy 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów.Na zamówienie możemy wykonać inne długości wodzy."
   },
   {
     "id": "wodze_west_ciezkie",
     "name": "wodze west dzielone ciężkie 2x2m",
-    "meta": "wodze west ciężkie - wodze do jazdy podwójne, w stylu west, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "description": "wodze west ciężkie - wodze do jazdy podwójne, w stylu west, wykonane z ciężkiej liny poliestrowej, przez swój ciężar idealnie przekazują sygnały z ręki do pyska konia. zakończone karabińczykami, mogą służyć również jako uwiąz podczas spacerów w terenie",
+    "keywords": "wodze linowe, wodze west, wodze westowe, western, jazda w stylu western, wodze sznurkowe, wodze ciężkie, wodze z karabińczykami, wodze do kantara, wodze do haltera, lejce, PNHS, NHS, natural",
+    "h1": "Wodze west ciężkie 2x2m",
     "prices": [
       {
         "name" : "wodze",
@@ -115,12 +127,14 @@
       "price": 25,
       "additional" : true
     }],
-    "description": "Wodze west dzielone ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 12 lub 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    "content": "Wodze west dzielone ciężkie: wodze treningowe wykonane z ciężkiej liny poliestrowej o średnicy 12 lub 14mm, stardardowa długość 2 x 2m, skórzane końcówki z karabińczykami (istnieje możliwość wymiany zwykłych karabińczyków niklowanych na karabińczyki ze stali nierdzewnej). Można z powodzeniem używać ich zarówno do haltera jak i do wędzidła czy ogłowia bezwędzidłowego. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów.Na zamówienie możemy wykonać inne długości wodzy."
   },
   {
     "id": "lina_lekka",
-    "name": "lina lekka",
-    "meta": "lina lekka - lina polipropylenowa, delikatna, idealna do pracy z końmi na wysokim poziomie zaawansowania, odpowiadających na najlżejsze sygnały",
+    "name": "lina do pracy z ziemi lekka",
+    "description": "lina do pracy z ziemi lekka - lina polipropylenowa, delikatna, idealna do pracy z końmi na wysokim poziomie zaawansowania, odpowiadających na najlżejsze sygnały",
+    "keywords": "lina do pracy z ziemi, praca z ziemi, natural, PNHS, NHS, praca z koniem, naturalne jeździectwo, lonża, lina do lonżowania, metody naturalne,karabińczyk parelli, panic hook, mosiężny, obrotowy, karabińczyk bezpieczny",
+    "h1": "Lina do pracy z ziemi lekka",
     "prices": [
       {
         "name": "3,6m",
@@ -142,12 +156,14 @@
         "additional": true
       }
     ],
-    "description": "Lina lekka: Lina treningowa, wykonana z lekkiej liny polipropylenowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "content": "Lina do pracy z ziemi lekka: Lina treningowa, wykonana z lekkiej liny polipropylenowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
     "id": "lina_ciezka",
-    "name": "lina ciężka",
-    "meta": "lina ciężka - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego",
+    "name": "lina do pracy z ziemi ciężka",
+    "description": "lina do pracy z ziemi ciężka - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego",
+    "keywords": "lina do pracy z ziemi, ciężka lina, żywa lina, oryginalna lina, praca z ziemi, natural, PNHS, NHS, praca z koniem, naturalne jeździectwo, lonża, lina do lonżowania, metody naturalne,karabińczyk parelli, panic hook, mosiężny, obrotowy, karabińczyk bezpieczny",
+    "h1": "Lina do pracy z ziemi ciężka",
     "prices": [
       {
         "name": "3,6m",
@@ -169,12 +185,14 @@
         "additional": true
       }
     ],
-    "description": "Lina ciężka: Lina treningowa, wykonana z ciężkiej liny poliestrowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "content": "Lina do pracy z ziemi ciężka: Lina treningowa, wykonana z ciężkiej liny poliestrowej o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
     "id": "lina_ciezka_elana",
-    "name": "lina ciężka (Elana/multicolor)",
-    "meta": "lina ciężka elana/multicolor - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego, wykonana z lin premium ",
+    "name": "lina do pracy z ziemi ciężka (Elana/multicolor)",
+    "description": "lina do pracy z ziemi ciężka elana/multicolor - lina poliestrowa, ciężka, idealna do nauki dla koni, które dopiero zaczynają pracę z ziemi, precyzyjnie przenosi sygnały przy małym nakładzie energii ze strony lonżującego, wykonana z lin premium ",
+    "keywords": "lina do pracy z ziemi, ciężka lina, żywa lina, oryginalna lina, praca z ziemi, natural, PNHS, NHS, praca z koniem, naturalne jeździectwo, lonża, lina do lonżowania, metody naturalne,karabińczyk parelli, panic hook, mosiężny, obrotowy, karabińczyk bezpieczny",
+    "h1": "Lina do pracy z ziemi ciężka elana lub multicolor",
     "prices": [
       {
         "name": "3,6m",
@@ -196,27 +214,32 @@
         "additional": true
       }
     ],
-    "description": "Lina ciężka elana/ multicolor: Lina treningowa, wykonana z ciężkiej liny poliestrowej typie elana (imitującej przędzę naturalną) lub wielokolorowej, o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
+    "content": "Lina do pracy z ziemi ciężka elana/ multicolor: Lina treningowa, wykonana z ciężkiej liny poliestrowej typie elana (imitującej przędzę naturalną) lub wielokolorowej, o średnicy 14mm, o standardowej długości 3,6m; 4,5m lub 6,7m (Na indywidualne życzenie klienta, istnieje możliwość wykonania innych długośći). Lina zakończona jest z jednej strony pętlą, która umożliwia połączenie bezpośrednio z halterem lub wplecenie karabińczyka. Na drugim końcu liny znajduje się skórzany popper. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów. Do liny można dokupić mosiężny karabińczyk obrotowy."
   },
   {
     "id": "cordeo",
     "name": "cordeo",
-    "meta": "cordeo - regulowane cordeo do jazdy, idealne urozmaicenie pracy z koniem, poprawa komunikacji z koniem",
+    "description": "cordeo - regulowane cordeo do jazdy, idealne urozmaicenie pracy z koniem, poprawa komunikacji z koniem",
+    "keywords": "cordeo, neckrope, natural, jazda bez wędzidła, jazda bez ogłowia, NHS, PNHS",
+    "h1": "Cordeo regulowane",
     "prices": [
       {
         "name" : "cordeo",
         "price": 80
       }
-    ], "description": "Cordeo: regulowane cordeo, wykonane z liny poliproplylenowej o średnicy 14mm. Doskonałe narzędzie, służące do jazdy bez ogłowia. Dzięki regulacji długości będzie pasować na każdego konia. Cordeo wykończone jest skórzanymi popperami. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
+    ],
+    "content": "Cordeo: regulowane cordeo, wykonane z liny poliproplylenowej o średnicy 14mm. Doskonałe narzędzie, służące do jazdy bez ogłowia. Dzięki regulacji długości będzie pasować na każdego konia. Cordeo wykończone jest skórzanymi popperami. Wyślij nam zapytanie w sprawie aktualnie dostępnych kolorów."
   },
   {
     "id": "bon_podarunkowy",
     "name": "Bon podarunkowy",
-    "meta": "bon podarunkowy - bon podarunkowty na zakup produktów z asrtymentu liny lulu, jego wartość jest dowolnie ustalana przez kupującego",
+    "description": "bon podarunkowy - bon podarunkowty na zakup produktów z asrtymentu liny lulu, jego wartość jest dowolnie ustalana przez kupującego",
+    "keywords": "voucher, bon, prezent, karta podarunkowa",
+    "h1": "Bon podarunkowy",
     "price_string": "to Ty ustalasz wartość!",
     "fixed_images": [
       "voucher"
     ],
-    "description": "Nie wiesz co sprawi radość osobie, którą chcesz obdarować? Voucher na produkty z naszej oferty to idealny pomysł na prezent. Wystawiany na dowolnie wybraną kwotę, ważny 6 miesięcy od dnia zakupu."
+    "content": "Nie wiesz co sprawi radość osobie, którą chcesz obdarować? Voucher na produkty z naszej oferty to idealny pomysł na prezent. Wystawiany na dowolnie wybraną kwotę, ważny 6 miesięcy od dnia zakupu."
   }
 ]
