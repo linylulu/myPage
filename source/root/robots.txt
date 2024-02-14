@@ -1,0 +1,6 @@
+Sitemap: https://linylulu.com/sitemap.xml
+
+User-agent: *
+Disallow: /regulamin.html
+Disallow: /kontakt.html
+Disallow: /polityka_prywatnosci.html

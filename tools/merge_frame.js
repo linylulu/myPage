@@ -81,7 +81,7 @@ function swapHead(targetDoc,sourceDoc) {
     const sourceRoot = sourceDoc.getElementsByTagName("html")[0];
     const sourceHead = sourceRoot.getElementsByTagName("head")[0];
     const sourceTitle = sourceHead.getElementsByTagName("title")[0];
-    const sourceMeta = sourceHead.getElementsByTagName("meta");
+    let sourceMeta = sourceHead.getElementsByTagName("meta");
     //
     // let i = 0;
     // for( i=0; i<links.length; i++ ){
@@ -92,11 +92,18 @@ function swapHead(targetDoc,sourceDoc) {
     const targetTitle = targetHead.getElementsByTagName("title")[0];
     targetTitle.replaceWith(targetDoc.adoptNode(sourceTitle));
     const targetMeta = targetDoc.getElementById("metaDesc")
-    let i = 0;
+
     while (sourceMeta.length > 0) {
         const item = targetDoc.adoptNode(sourceMeta[0]);
         targetHead.insertBefore(item, targetMeta);
     }
+
+    sourceMeta = sourceHead.getElementsByTagName("link");
+    while (sourceMeta.length > 0) {
+        const item = targetDoc.adoptNode(sourceMeta[0]);
+        targetHead.insertBefore(item, targetMeta);
+    }
+
     targetHead.removeChild(targetMeta);
 
 
